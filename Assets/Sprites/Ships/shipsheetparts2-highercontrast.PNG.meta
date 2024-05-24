@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: f70c6f030b00f214684b309dc227129b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shipsheetparts2-highercontrast_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 380
+        width: 49
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 10, z: 0, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5160568705a0cba40b51c4658bbb51a3
+      internalID: 2044006881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shipsheetparts2-highercontrast_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 387
+        width: 37
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 9}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887f5e8ec16614a4e931d075f1fd32c1
+      internalID: -792905043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shipsheetparts2-highercontrast_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 386
+        width: 53
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce9767e9344d5b94384ae371b5daacc8
+      internalID: -563226709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shipsheetparts2-highercontrast_3
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 386
+        width: 47
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 6, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b340e7e86ceee954db6b11ad99ea54f8
+      internalID: 1992986593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shipsheetparts2-highercontrast_4
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 387
+        width: 44
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f53344638ec95ff478b90e0c43ed6b5b
+      internalID: -1778192340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shipsheetparts2-highercontrast_5
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 380
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 6, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a3933fb605af44c8c9258763b9a07a
+      internalID: 1723436546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shipsheetparts2-highercontrast_6
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 385
+        width: 69
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0528294217f98ba4baf6729f82679ad4
+      internalID: 1456681254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      shipsheetparts2-highercontrast_0: 2044006881
+      shipsheetparts2-highercontrast_1: -792905043
+      shipsheetparts2-highercontrast_10: -1028065819
+      shipsheetparts2-highercontrast_11: -574939933
+      shipsheetparts2-highercontrast_12: -941794866
+      shipsheetparts2-highercontrast_13: -1188971782
+      shipsheetparts2-highercontrast_14: -499621716
+      shipsheetparts2-highercontrast_15: 154301542
+      shipsheetparts2-highercontrast_16: 2069901434
+      shipsheetparts2-highercontrast_17: 2091575443
+      shipsheetparts2-highercontrast_18: -92502365
+      shipsheetparts2-highercontrast_19: -1213152810
+      shipsheetparts2-highercontrast_2: -563226709
+      shipsheetparts2-highercontrast_20: 576264298
+      shipsheetparts2-highercontrast_21: 1531284684
+      shipsheetparts2-highercontrast_22: -305195969
+      shipsheetparts2-highercontrast_23: 379045881
+      shipsheetparts2-highercontrast_24: -1102202853
+      shipsheetparts2-highercontrast_25: -599012537
+      shipsheetparts2-highercontrast_26: 521604103
+      shipsheetparts2-highercontrast_27: -1831161001
+      shipsheetparts2-highercontrast_28: 832187074
+      shipsheetparts2-highercontrast_29: 85180610
+      shipsheetparts2-highercontrast_3: 1992986593
+      shipsheetparts2-highercontrast_30: 1218090116
+      shipsheetparts2-highercontrast_31: -1833224427
+      shipsheetparts2-highercontrast_32: -2139198606
+      shipsheetparts2-highercontrast_33: -356088012
+      shipsheetparts2-highercontrast_34: -919782986
+      shipsheetparts2-highercontrast_35: -1761670306
+      shipsheetparts2-highercontrast_36: -102002500
+      shipsheetparts2-highercontrast_37: 492878341
+      shipsheetparts2-highercontrast_38: -1113537939
+      shipsheetparts2-highercontrast_39: 1188371482
+      shipsheetparts2-highercontrast_4: -1778192340
+      shipsheetparts2-highercontrast_40: 1671042744
+      shipsheetparts2-highercontrast_41: 1361946515
+      shipsheetparts2-highercontrast_5: 1723436546
+      shipsheetparts2-highercontrast_6: 1456681254
+      shipsheetparts2-highercontrast_7: 1844292250
+      shipsheetparts2-highercontrast_8: 364149279
+      shipsheetparts2-highercontrast_9: -624040458
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
