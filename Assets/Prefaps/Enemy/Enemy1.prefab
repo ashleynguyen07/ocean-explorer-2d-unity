@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5246709756509910158}
   - component: {fileID: 1131819111620014351}
   - component: {fileID: 789988330319930087}
+  - component: {fileID: -1640739585817473949}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -294,3 +295,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedMove: 3
   bullet: {fileID: 9007126266652592875, guid: b37720f193296aa42830ffae11062d95, type: 3}
+--- !u!114 &-1640739585817473949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923235244385599068}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1c2a68b105e97488a34d37e92f1bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  enemyHealthBar: {fileID: 8518896465487070569, guid: 08453ece6b929f843a35771c1eba790b, type: 3}
+  ondeath:
+    m_PersistentCalls:
+      m_Calls: []

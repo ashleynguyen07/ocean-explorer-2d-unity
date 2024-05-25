@@ -19,7 +19,7 @@ public class SpawnE : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-		yield return new WaitForSeconds(Random.Range(1f, 3f));
+		yield return new WaitForSeconds(Random.Range(0f, 3f));
 		float minX = -box.bounds.size.x / 2f;
 		float maxX = box.bounds.size.x / 2f;
         Vector3 temp = transform.position;

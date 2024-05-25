@@ -36,24 +36,5 @@ public class Enemy : MonoBehaviour
 
 	}
 	//===================
-	void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.tag == "bulletP")
-		{
-			Destroy(gameObject);
-
-		}
-
-		if (collision.tag == "Player")
-		{
-			Destroy(collision.gameObject);
-
-		}
-		if (collision.tag == "BoxBound")
-		{
-			Destroy(gameObject);
-
-		}
-
-	}
+	
 }

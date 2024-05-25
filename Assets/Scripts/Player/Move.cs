@@ -44,13 +44,6 @@ public class Move : MonoBehaviour
 		Instantiate(bullet, temp, Quaternion.identity);
 		
 	}
-	void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.tag == "bulletE")
-		{
-			Destroy(gameObject);
-
-		}
-	}
+	
 
 }
