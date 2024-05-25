@@ -8,7 +8,7 @@ public class SpawnE : MonoBehaviour
     private GameObject  enemy;
 
     private BoxCollider2D box;
-
+    private int countEnemy = 0;
     void Start()
     {
         box = GetComponent<BoxCollider2D>();
@@ -19,14 +19,20 @@ public class SpawnE : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
+     
 		yield return new WaitForSeconds(Random.Range(0f, 3f));
-		float minX = -box.bounds.size.x / 2f;
-		float maxX = box.bounds.size.x / 2f;
-        Vector3 temp = transform.position;
-        temp.x = Random.Range(minX, maxX);
-        Instantiate(enemy, temp, Quaternion.identity);
-
-		StartCoroutine(SpawnEnemy());
+		
+		if (countEnemy <= 6)
+        {
+			countEnemy++;
+			float minX = -box.bounds.size.x / 2f;
+            float maxX = box.bounds.size.x / 2f;
+            Vector3 temp = transform.position;
+            temp.x = Random.Range(minX, maxX);
+            Instantiate(enemy, temp, Quaternion.identity);
+			StartCoroutine(SpawnEnemy());
+		}
+		
 
 	}
 }
