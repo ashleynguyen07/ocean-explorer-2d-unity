@@ -8,6 +8,8 @@ TagManager:
   - enemy
   - bulletP
   - bulletE
+  - TopBoxBound
+  - BottomBoxBound
   layers:
   - Default
   - TransparentFX

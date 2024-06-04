@@ -24,7 +24,7 @@ public class BulletEnemy : MonoBehaviour
 	//=======
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag == "BoxBound")
+		if (collision.tag == "BottomBoxBound")
 		{
 			Destroy(gameObject);
 		}

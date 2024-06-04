@@ -23,7 +23,7 @@ public class BulletMove : MonoBehaviour
     }
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag == "BoxBound")
+		if (collision.tag == "TopBoxBound")
 		{
 			Destroy(gameObject);
 		}
