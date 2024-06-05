@@ -6,16 +6,13 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
-
     [SerializeField] int maxHealth;
     int currentHealth;
-
-    public HealthBar healthBar;
-
+    public PHealthBar healthBar;
     public UnityEvent ondeath;
 
+	public Point point;
 	//=====================
-
 	private void OnEnable()
 	{
 		ondeath.AddListener(Death);
@@ -39,8 +36,10 @@ public class PlayerHealth : MonoBehaviour
 	public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if(currentHealth <= 0)
+		point.UpdatePoint(5);
+		if (currentHealth <= 0)
         {
+			
 			currentHealth = 0;
             ondeath.Invoke();
         }
@@ -51,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
 		Destroy(gameObject);
 	}
 	//=====================
-
+	
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{

@@ -21,6 +21,7 @@ public class PAutoRota : MonoBehaviour
 		if(string.IsNullOrEmpty(shipName))
 		{
 			shipName = "ship1";
+			PlayerPrefs.SetString("ShipFight", "ship1");
 		}
 
 		Sprite prefabObject = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipName + ".png", typeof(Sprite));

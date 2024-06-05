@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
 
 		if (transform.position.y <= maxY)
 		{
-			Debug.Log("hi");
 			transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
 		}
 		else {

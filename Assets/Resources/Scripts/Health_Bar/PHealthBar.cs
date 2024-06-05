@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class HealthBar : MonoBehaviour
+public class PHealthBar : MonoBehaviour
 {
 
     public Image redBar;

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2375621740621289569}
   - component: {fileID: 1342938849090099583}
   - component: {fileID: 19546055124422449}
+  - component: {fileID: -4139860081794134297}
   m_Layer: 0
   m_Name: ship3
   m_TagString: Player
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8589177661618423967}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.464273, y: -8.218955, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -247,3 +248,15 @@ PolygonCollider2D:
       - {x: 0.03, y: -1.3}
       - {x: 0.02, y: -1.54}
   m_UseDelaunayMesh: 0
+--- !u!114 &-4139860081794134297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8589177661618423967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c98c8e9d4d649140bdabb33df836ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

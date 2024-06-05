@@ -12,6 +12,8 @@ public class EnemyHealth : MonoBehaviour
 
 	public UnityEvent ondeath;
 
+	
+
 	//=====================
 
 	private void OnEnable()
@@ -40,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
 		currentHealth -= damage;
 		if (currentHealth <= 0)
 		{
+			
 			currentHealth = 0;
 			ondeath.Invoke();
 		}
@@ -47,7 +50,9 @@ public class EnemyHealth : MonoBehaviour
 	//=====================
 	public void Death()
 	{
+		
 		Destroy(gameObject);
+		
 	}
 	//=====================
 
