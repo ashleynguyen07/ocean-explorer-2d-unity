@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
 	public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-		point.UpdatePoint(5);
+		
 		if (currentHealth <= 0)
         {
 			
@@ -78,6 +78,12 @@ public class PlayerHealth : MonoBehaviour
 		}
 		if (collision.tag == "Speed")
 		{
+			Destroy(collision.gameObject);
+
+		}
+		if (collision.tag == "diamond")
+		{
+			point.UpdatePoint(5);
 			Destroy(collision.gameObject);
 
 		}

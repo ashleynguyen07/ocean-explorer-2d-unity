@@ -11,8 +11,11 @@ public class EnemyHealth : MonoBehaviour
 	int currentHealth;
 	public EnemyHealthBar enemyHealthBar;
 	public UnityEvent ondeath;
+	GameObject prefabDiamond;
+
 
 	string[] myArray = { "Armor_Bonus", "Damage_Bonus", "HP_Bonus", "Speed_Bobus" };
+	int countDiamond = 0;
 	//=====================
 	private void OnEnable()
 	{
@@ -39,6 +42,10 @@ public class EnemyHealth : MonoBehaviour
 		offset = gameObject.transform;
 		if (currentHealth <= 0)
 		{
+			 prefabDiamond = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/bonus/diamond.prefab", typeof(GameObject));
+			StartCoroutine(SpawnDiamond());
+
+			//=================================
 			string randomElement = GetRandomArrayElement(myArray);
 
 			GameObject prefabObject = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/bonus/"+ randomElement + ".prefab", typeof(GameObject));
@@ -78,6 +85,23 @@ public class EnemyHealth : MonoBehaviour
 		System.Random random = new System.Random();
 		int randomIndex = random.Next(array.Length);
 		return array[randomIndex];
+	}
+
+	IEnumerator  SpawnDiamond()
+	{
+		countDiamond++;
+		if(countDiamond <= 20)
+		{
+
+
+			Vector3 diamondPosition = new Vector3(offset.position.x + Random.Range(0f, 2f), offset.position.y + Random.Range(0f, 2f), 0f);
+			Instantiate(prefabDiamond, diamondPosition, offset.rotation);
+
+			StartCoroutine(SpawnDiamond());
+		}
+
+		
+		yield return null;
 	}
 
 }
