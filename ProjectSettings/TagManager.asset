@@ -10,6 +10,10 @@ TagManager:
   - bulletE
   - TopBoxBound
   - BottomBoxBound
+  - Blood
+  - Speed
+  - shield
+  - Damage
   layers:
   - Default
   - TransparentFX

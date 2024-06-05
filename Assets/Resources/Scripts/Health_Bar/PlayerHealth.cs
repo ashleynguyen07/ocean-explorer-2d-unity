@@ -61,6 +61,26 @@ public class PlayerHealth : MonoBehaviour
 			healthBar.UpdateBar(currentHealth, maxHealth);
 			Destroy(collision.gameObject);
 		}
+		if (collision.tag == "shield")
+		{
+			Destroy(collision.gameObject);
+
+		}
+		if (collision.tag == "Damage")
+		{
+			Destroy(collision.gameObject);
+
+		}
+		if (collision.tag == "Blood")
+		{
+			Destroy(collision.gameObject);
+
+		}
+		if (collision.tag == "Speed")
+		{
+			Destroy(collision.gameObject);
+
+		}
 	}
 
 }
