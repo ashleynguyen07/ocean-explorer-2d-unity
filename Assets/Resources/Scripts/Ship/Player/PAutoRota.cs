@@ -1,19 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Android.Types;
+using UnityEditor;
 using UnityEngine;
 
 public class PAutoRota : MonoBehaviour
 {
-	[SerializeField]
+	
 	Sprite mySprite;
 
 	[SerializeField]
+	GameObject myGameObject;
+
+
 	Sprite someOtherSprite;
 
 	void Start()
     {
-		GameObject emptyGameObject = new GameObject("Player");
+		string shipName = PlayerPrefs.GetString("ShipFight");
+		if(string.IsNullOrEmpty(shipName))
+		{
+			shipName = "ship1";
+		}
+
+		Sprite prefabObject = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipName + ".png", typeof(Sprite));
+		mySprite = prefabObject;
+		
+
+		//========================================
+		GameObject emptyGameObject = myGameObject;
 		SpriteRenderer spriteRenderer = emptyGameObject.AddComponent<SpriteRenderer>();
 		
 		spriteRenderer.sprite = mySprite;

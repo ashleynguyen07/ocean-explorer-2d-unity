@@ -7,7 +7,7 @@ public class OnOffPanel : MonoBehaviour
 	bool onOff = false;
 	[SerializeField]
 	 GameObject popupPanel;
-	public void btnOnOffPanel()
+	public void btnOnOffPanel(string shipName)
 	{
 		if (onOff !=true)
 		{
@@ -16,9 +16,12 @@ public class OnOffPanel : MonoBehaviour
 		}
 		else
 		{
+			PlayerPrefs.SetString("ShipName", shipName);
+			PlayerPrefs.Save();
 			onOff = false;
 			popupPanel.SetActive(false);
 		}
-
+		string highScore = PlayerPrefs.GetString("ShipName");
+		Debug.Log("Ship name" + highScore);
 	}
 }
