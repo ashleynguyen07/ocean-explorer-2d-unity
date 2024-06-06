@@ -8,38 +8,45 @@ public class SpawnE : MonoBehaviour
 	private GameObject enemy;
 
 	private BoxCollider2D box;
-	private static int countEnemy = 0;
+	private int countEnemy;
 	
 	
-	public static int ReturnCountEnemy()
+	/*public static int ReturnCountEnemy()
 	{
-
 		return countEnemy;
-	}
+	}*/
 	void Start()
 	{
+		countEnemy = 0;
 		box = GetComponent<BoxCollider2D>();
-		StartCoroutine(SpawnEnemy());
+		StartCoroutine(SpawnEnemyStage1());
 	}
 
 
 
-	IEnumerator SpawnEnemy()
+	IEnumerator SpawnEnemyStage1()
 	{
-
-		yield return new WaitForSeconds(Random.Range(0f, 3f));
-
-		if (countEnemy <= 2)
+		if(countEnemy == 0)
 		{
-			countEnemy++;
+			yield return new WaitForSeconds(3f);
+
+		}
+		if (countEnemy > 0 && countEnemy <= 2)
+			yield return new WaitForSeconds(7f);
+		else if (countEnemy >= 3 && countEnemy <=7)
+			yield return new WaitForSeconds(Random.Range(1f, 5f));
+
+		if (countEnemy <= 7)
+		{
+			
 			float minX = -box.bounds.size.x / 2f;
 			float maxX = box.bounds.size.x / 2f;
 			Vector3 temp = transform.position;
 			temp.x = Random.Range(minX, maxX);
 			Instantiate(enemy, temp, Quaternion.identity);
-			StartCoroutine(SpawnEnemy());
+			countEnemy++;
+			StartCoroutine(SpawnEnemyStage1());
 		}
-
-
+		PlayerPrefs.SetInt("CountEnemy", countEnemy);
 	}
 }

@@ -15,6 +15,7 @@ TagManager:
   - shield
   - Damage
   - diamond
+  - shieldP
   layers:
   - Default
   - TransparentFX

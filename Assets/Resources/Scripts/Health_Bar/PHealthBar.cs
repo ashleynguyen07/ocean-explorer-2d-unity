@@ -15,9 +15,7 @@ public class PHealthBar : MonoBehaviour
     // Update is called once per frame
     public void UpdateBar(int currentValue , int maxValue)
     {
-			redBar.fillAmount = (float)currentValue / (float)maxValue;
-
-			valueText.text = currentValue.ToString() + "/" + maxValue.ToString();
-			
+		redBar.fillAmount = (float)currentValue / (float)maxValue;
+		valueText.text = currentValue.ToString() + "/" + maxValue.ToString();
     }
 }

@@ -42,15 +42,17 @@ public class EnemyHealth : MonoBehaviour
 		offset = gameObject.transform;
 		if (currentHealth <= 0)
 		{
-			 prefabDiamond = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/bonus/diamond.prefab", typeof(GameObject));
+			//============= sinh diamond ====================
+			prefabDiamond = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/bonus/diamond.prefab", typeof(GameObject));
 			StartCoroutine(SpawnDiamond());
 
-			//=================================
+			//============= sinh Bonus ====================
 			string randomElement = GetRandomArrayElement(myArray);
 
 			GameObject prefabObject = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/bonus/"+ randomElement + ".prefab", typeof(GameObject));
 			Instantiate(prefabObject, offset.position , offset.rotation);
-			Debug.Log(offset);
+			
+			//======== call death ===============
 			currentHealth = 0;
 			ondeath.Invoke();
 		}
@@ -58,6 +60,12 @@ public class EnemyHealth : MonoBehaviour
 	//=====================
 	public void Death()
 	{
+		int countEnemy = PlayerPrefs.GetInt("CountEnemy", 0);
+		if (countEnemy >= 7)
+		{
+			PlayerPrefs.SetString("Win", "true");
+		}
+		Debug.Log("countEnemy" +  countEnemy);
 		Destroy(gameObject);
 	}
 	//=====================
@@ -65,14 +73,18 @@ public class EnemyHealth : MonoBehaviour
 	{
 		if (collision.tag == "bulletP")
 		{
-			TakeDamage(5);
+			TakeDamage(10);
 			enemyHealthBar.UpdateBar(currentHealth, maxHealth, true);
 			Destroy(collision.gameObject);
 		}
 
 		if (collision.tag == "Player")
 		{
-			
+			if(collision.tag == "shieldP")
+			{
+				TakeDamage(20);
+				enemyHealthBar.UpdateBar(currentHealth, maxHealth, true);
+			}
 
 		}
 		if (collision.tag == "BoxBound")
@@ -92,8 +104,6 @@ public class EnemyHealth : MonoBehaviour
 		countDiamond++;
 		if(countDiamond <= 20)
 		{
-
-
 			Vector3 diamondPosition = new Vector3(offset.position.x + Random.Range(0f, 2f), offset.position.y + Random.Range(0f, 2f), 0f);
 			Instantiate(prefabDiamond, diamondPosition, offset.rotation);
 
@@ -103,5 +113,8 @@ public class EnemyHealth : MonoBehaviour
 		
 		yield return null;
 	}
+
+
+	
 
 }

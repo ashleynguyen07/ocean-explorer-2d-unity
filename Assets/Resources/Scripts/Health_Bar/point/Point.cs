@@ -13,5 +13,6 @@ public class Point : MonoBehaviour
     {
 		totalPoint += point;
 		valueTextPoint.text = "Point :" + totalPoint.ToString();
+		PlayerPrefs.SetInt("Point", totalPoint);
 	}
 }
