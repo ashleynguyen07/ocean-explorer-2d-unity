@@ -16,6 +16,7 @@ public class RunBackground : MonoBehaviour
     {
         var woldHeight = Camera.main.orthographicSize *2f;
 
+
         var woldWidth = woldHeight * Screen.width/Screen.height;
 
         transform.localScale = new Vector3(woldWidth, woldHeight,0f);

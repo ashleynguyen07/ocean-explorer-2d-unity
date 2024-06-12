@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
 	int totalPoint;
 
 	GameObject winPanel;
+	GameObject gameOverPanel;
 	GameObject shield;
 	string checkShield;
 	//=====================
@@ -35,13 +36,19 @@ public class PlayerHealth : MonoBehaviour
 	//=====================
 	private void Start()
 	{
+		currentHealth = maxHealth;
+		healthBar.UpdateBar(currentHealth, maxHealth);
+		
 		PlayerPrefs.SetInt("CountEnemy", 0);
 		PlayerPrefs.SetInt("Point", 0);
 		PlayerPrefs.SetString("Win", "false");
+
 		winPanel = GameObject.Find("WinPanel");
-		currentHealth = maxHealth;
-		healthBar.UpdateBar(currentHealth, maxHealth);
 		OnOffPanelWin();
+		gameOverPanel = GameObject.Find("GameOverPanel");
+		
+		gameOverPanel.SetActive(false);
+		
 	}
 	//=====================
 	public void TakeDamage(int damage)
@@ -49,8 +56,10 @@ public class PlayerHealth : MonoBehaviour
 		currentHealth -= damage;
 		if (currentHealth <= 0)
 		{
+		
 			currentHealth = 0;
 			ondeath.Invoke();
+			OnPanelGameOver();
 		}
 	}
 	//=====================
@@ -63,7 +72,7 @@ public class PlayerHealth : MonoBehaviour
 	{
 		if (collision.tag == "bulletE")
 		{
-			TakeDamage(1);
+			TakeDamage(20);
 			healthBar.UpdateBar(currentHealth, maxHealth);
 			Destroy(collision.gameObject);
 		}
@@ -106,7 +115,7 @@ public class PlayerHealth : MonoBehaviour
 		win = PlayerPrefs.GetString("Win", "false");
 		totalPoint = PlayerPrefs.GetInt("Point", 0);
 		if (countEnemy == 8 && win.Equals("true") && totalPoint >= 780) StartCoroutine(WinGame());
-		Debug.Log(countEnemy + win + totalPoint);
+		
 	}
 
 	IEnumerator WinGame()
@@ -123,6 +132,12 @@ public class PlayerHealth : MonoBehaviour
 		 StartCoroutine(ReturnMapScene());
 		}
 		else winPanel.SetActive(false);
+	}
+
+	void OnPanelGameOver()
+	{
+		Time.timeScale = 0f;
+		gameOverPanel.SetActive(true);
 	}
 	IEnumerator ReturnMapScene()
 	{
@@ -141,5 +156,6 @@ public class PlayerHealth : MonoBehaviour
 		Instantiate(shield, gameObject.transform.position, gameObject.transform.rotation);
 		PlayerPrefs.SetString("shieldP", "true");
 	}
+
 
 }

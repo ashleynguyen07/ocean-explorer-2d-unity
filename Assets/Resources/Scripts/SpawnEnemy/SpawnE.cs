@@ -43,7 +43,9 @@ public class SpawnE : MonoBehaviour
 			float maxX = box.bounds.size.x / 2f;
 			Vector3 temp = transform.position;
 			temp.x = Random.Range(minX, maxX);
+			
 			Instantiate(enemy, temp, Quaternion.identity);
+			
 			countEnemy++;
 			StartCoroutine(SpawnEnemyStage1());
 		}

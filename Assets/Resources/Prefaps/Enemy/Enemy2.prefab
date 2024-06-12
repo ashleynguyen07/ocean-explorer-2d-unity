@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 447123061118118061}
   - component: {fileID: 4688651356239578569}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ship3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7010037865057873641}
   - component: {fileID: 1690326651710820342}
   - component: {fileID: 7617703260230031288}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,9 +199,9 @@ GameObject:
   - component: {fileID: 7420489173311872208}
   - component: {fileID: 7701659088202583508}
   - component: {fileID: 418608825934768823}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy2
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +215,7 @@ Transform:
   m_GameObject: {fileID: 3405501562958225920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7977791, y: 5.8167357, z: 0.31189054}
+  m_LocalPosition: {x: -0.7977791, y: 5.8167357, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -336,6 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedMove: 3
   bullet: {fileID: 9007126266652592875, guid: b37720f193296aa42830ffae11062d95, type: 3}
+  move: {x: 0, y: 0, z: 0}
 --- !u!114 &418608825934768823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,8 +367,24 @@ PrefabInstance:
       value: HealthBarE
       objectReference: {fileID: 0}
     - target: {fileID: 2053707629804157069, guid: 08453ece6b929f843a35771c1eba790b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053707629804157069, guid: 08453ece6b929f843a35771c1eba790b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802487985612007725, guid: 08453ece6b929f843a35771c1eba790b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6351040036694980534, guid: 08453ece6b929f843a35771c1eba790b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336243762408506566, guid: 08453ece6b929f843a35771c1eba790b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8425509435241520122, guid: 08453ece6b929f843a35771c1eba790b, type: 3}
       propertyPath: m_Pivot.x
