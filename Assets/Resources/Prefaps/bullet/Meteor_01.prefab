@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1623409550220599952}
   - component: {fileID: 3735131851109592784}
   - component: {fileID: 3076603301128800037}
+  - component: {fileID: 7277117904706548728}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -89,6 +90,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 2579469523071520615}
+--- !u!114 &7277117904706548728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396845875730108044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb72979a1ea321e4ebfa9b56bb75279a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2175800740899668587
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +216,7 @@ GameObject:
   - component: {fileID: 3971402930292759959}
   - component: {fileID: 4317339875447095635}
   - component: {fileID: 5757976138276912005}
-  - component: {fileID: 145739079416324129}
+  - component: {fileID: -3850969703778159793}
   m_Layer: 0
   m_Name: Meteor_01
   m_TagString: Untagged
@@ -401,16 +414,16 @@ PolygonCollider2D:
       - {x: -0.52, y: -1.3299999}
       - {x: -0.26, y: -1.28}
   m_UseDelaunayMesh: 0
---- !u!114 &145739079416324129
+--- !u!114 &-3850969703778159793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5824868039761677195}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8291eb8ddcf0084cae47d3b3092ab61, type: 3}
+  m_Script: {fileID: 11500000, guid: 24d5ca1ffd8d8c945b27bc238a008109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  childObject: {fileID: 2175800740899668587}

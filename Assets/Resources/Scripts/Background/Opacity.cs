@@ -19,7 +19,7 @@ public class Opacity : MonoBehaviour
 		opacity = 1f;
 		check = true;
 		startTime = 0.8f*Time.deltaTime;
-		Debug.Log(startTime);
+		
 	}
 
 	private void Update()

@@ -25,8 +25,8 @@ public class CanvasFollow : MonoBehaviour
 		float y = objectToFollow.position.y - 14f;
 		Vector3 screenPosition = mainCamera.WorldToScreenPoint(new Vector3(x,y,0f));
 		
-		
 			imageRectTransform.localPosition = screenPosition;
 		
 	}
+
 }
