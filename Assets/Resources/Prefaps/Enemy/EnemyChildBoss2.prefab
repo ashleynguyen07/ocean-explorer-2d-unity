@@ -130,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 7037823910975074492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.51, y: -4.38, z: 0}
+  m_LocalPosition: {x: 6.51, y: -4.38, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 500
-  enemyHealthBar: {fileID: 0}
+  enemyHealthBar: {fileID: 7059182603802374436}
   ondeath:
     m_PersistentCalls:
       m_Calls: []
@@ -270,7 +270,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b9c37b0d38a21334c928170f7623e36f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -311,7 +311,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -604,6 +604,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08453ece6b929f843a35771c1eba790b, type: 3}
+--- !u!114 &7059182603802374436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6945771473428510671, guid: 08453ece6b929f843a35771c1eba790b, type: 3}
+  m_PrefabInstance: {fileID: 113460217714214635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af3d72556bea3540a509622a74c4e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8466339896250555665 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8425509435241520122, guid: 08453ece6b929f843a35771c1eba790b, type: 3}

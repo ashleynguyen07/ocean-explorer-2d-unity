@@ -60,12 +60,7 @@ public class EnemyHealth : MonoBehaviour
 	//=====================
 	public void Death()
 	{
-		int countEnemy = PlayerPrefs.GetInt("CountEnemy", 0);
-		if (countEnemy >= 7)
-		{
-			PlayerPrefs.SetString("Win", "true");
-		}
-		Debug.Log("countEnemy" +  countEnemy);
+		
 		Destroy(gameObject);
 	}
 	//=====================

@@ -49,6 +49,6 @@ public class SpawnE : MonoBehaviour
 			countEnemy++;
 			StartCoroutine(SpawnEnemyStage1());
 		}
-		PlayerPrefs.SetInt("CountEnemy", countEnemy);
+		
 	}
 }

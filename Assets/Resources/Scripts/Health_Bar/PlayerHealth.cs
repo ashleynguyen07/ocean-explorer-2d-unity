@@ -38,11 +38,7 @@ public class PlayerHealth : MonoBehaviour
 	{
 		currentHealth = maxHealth;
 		healthBar.UpdateBar(currentHealth, maxHealth);
-		
-		PlayerPrefs.SetInt("CountEnemy", 0);
 		PlayerPrefs.SetInt("Point", 0);
-		PlayerPrefs.SetString("Win", "false");
-
 		winPanel = GameObject.Find("WinPanel");
 		OnOffPanelWin();
 		gameOverPanel = GameObject.Find("GameOverPanel");
@@ -111,25 +107,27 @@ public class PlayerHealth : MonoBehaviour
 	}
 	private void Update()
 	{
-		countEnemy = PlayerPrefs.GetInt("CountEnemy");
-		win = PlayerPrefs.GetString("Win", "false");
+		
 		totalPoint = PlayerPrefs.GetInt("Point", 0);
-		if (countEnemy == 8 && win.Equals("true") && totalPoint >= 780) StartCoroutine(WinGame());
+		if ( totalPoint >= 780) StartCoroutine(WinGame());
 		
 	}
 
 	IEnumerator WinGame()
 	{
+		
 		yield return new WaitForSeconds(2f);
+		Time.timeScale = 0f;
 		OnOffPanelWin();
 		//Application.Quit();
 	}
 	void OnOffPanelWin()
 	{
-		if (countEnemy > 6)
+		if (totalPoint > 600)
 		{
 			winPanel.SetActive(true);
-		 StartCoroutine(ReturnMapScene());
+			PlayerPrefs.SetString("level1", "true");
+		    StartCoroutine(ReturnMapScene());
 		}
 		else winPanel.SetActive(false);
 	}
