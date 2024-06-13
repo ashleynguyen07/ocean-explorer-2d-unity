@@ -114,14 +114,15 @@ public class level3 : MonoBehaviour
 	{
 		
 			yield return new WaitForSeconds(2f);
-			
-				Vector3 temp = transform.position;
-				temp.x = Random.Range((minX+0.2f), (maxX-0.2f));
+		if (countEnemy < 3)
+		{
+			Vector3 temp = transform.position;
+			temp.x = Random.Range((minX + 0.2f), (maxX - 0.2f));
 
-				Instantiate(meteo, temp, Quaternion.identity);
-				countEnemy++;
-				StartCoroutine(SpawnStageMeteo());
-			
+			Instantiate(meteo, temp, Quaternion.identity);
+			countEnemy++;
+			StartCoroutine(SpawnStageMeteo());
+		}
 		
 	}
 }
