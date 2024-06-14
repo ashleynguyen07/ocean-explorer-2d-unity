@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
 	GameObject prefabDiamond;
 
 
-	string[] myArray = { "Armor_Bonus", "Damage_Bonus", "HP_Bonus", "Speed_Bobus" };
+	string[] myArray = { "Armor_Bonus", "Damage_Bonus", "HP_Bonus", "Speed_Bobus", "Rockets_Bonus" };
 	int countDiamond = 0;
 	//=====================
 	private void OnEnable()
