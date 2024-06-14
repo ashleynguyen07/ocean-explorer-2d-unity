@@ -113,7 +113,8 @@ GameObject:
   - component: {fileID: 1666176087384642692}
   - component: {fileID: 7359936863270587773}
   - component: {fileID: 5542425757120340017}
-  - component: {fileID: 1479121691242668703}
+  - component: {fileID: 817013143374760566}
+  - component: {fileID: 2395886975018067813}
   m_Layer: 3
   m_Name: EnemyChildBoss2
   m_TagString: Untagged
@@ -182,7 +183,7 @@ MonoBehaviour:
   ondeath:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1479121691242668703
+--- !u!114 &817013143374760566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,12 +192,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7037823910975074492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32e5613d71ce6c240b681de4e52e506a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e93f9ec3b0a04c49897256e29d41352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedMove: 3
+--- !u!114 &2395886975018067813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7037823910975074492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938d22951bcf94f428beef120612131d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   bullet: {fileID: 9007126266652592875, guid: b37720f193296aa42830ffae11062d95, type: 3}
-  move: {x: 0, y: 0, z: 0}
 --- !u!1 &8312999801813737652
 GameObject:
   m_ObjectHideFlags: 0

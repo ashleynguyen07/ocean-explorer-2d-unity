@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 40376010004760183}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.16, y: 4.88, z: 0}
+  m_LocalScale: {x: 3.7884352, y: 3.4844136, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5513692666850752805}
@@ -327,7 +327,8 @@ GameObject:
   - component: {fileID: 5513692666850752805}
   - component: {fileID: 7794440288568822842}
   - component: {fileID: 2872699702104161639}
-  - component: {fileID: 2091025142314638671}
+  - component: {fileID: -6163826706966650924}
+  - component: {fileID: 7127482189450000735}
   m_Layer: 3
   m_Name: EnemyChildBoss1
   m_TagString: Untagged
@@ -396,7 +397,7 @@ MonoBehaviour:
   ondeath:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2091025142314638671
+--- !u!114 &-6163826706966650924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -405,12 +406,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5455518687025942682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32e5613d71ce6c240b681de4e52e506a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e93f9ec3b0a04c49897256e29d41352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedMove: 3
+--- !u!114 &7127482189450000735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5455518687025942682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938d22951bcf94f428beef120612131d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   bullet: {fileID: 9007126266652592875, guid: b37720f193296aa42830ffae11062d95, type: 3}
-  move: {x: 0, y: 0, z: 0}
 --- !u!1001 &6314676199927985047
 PrefabInstance:
   m_ObjectHideFlags: 0

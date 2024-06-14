@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
 	void Start()
 	{
 		Vector3 bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0f));
-		maxY = bounds.y-3f;
+		maxY = bounds.y-8f;
 		rb = GetComponent<Rigidbody2D>();
 		InvokeRepeating("Shoot", 1f, 1f);
 		y = bounds.y;

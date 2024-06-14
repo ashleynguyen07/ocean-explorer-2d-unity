@@ -197,8 +197,9 @@ GameObject:
   - component: {fileID: 6854545812900336538}
   - component: {fileID: 3118298185876698471}
   - component: {fileID: 7420489173311872208}
-  - component: {fileID: 7701659088202583508}
   - component: {fileID: 418608825934768823}
+  - component: {fileID: 4216942773085530916}
+  - component: {fileID: 4856484986389097645}
   m_Layer: 3
   m_Name: Enemy2
   m_TagString: enemy
@@ -322,21 +323,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7701659088202583508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405501562958225920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32e5613d71ce6c240b681de4e52e506a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpeedMove: 3
-  bullet: {fileID: 9007126266652592875, guid: b37720f193296aa42830ffae11062d95, type: 3}
-  move: {x: 0, y: 0, z: 0}
 --- !u!114 &418608825934768823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +340,32 @@ MonoBehaviour:
   ondeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4216942773085530916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405501562958225920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e93f9ec3b0a04c49897256e29d41352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedMove: 3
+--- !u!114 &4856484986389097645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405501562958225920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938d22951bcf94f428beef120612131d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 9007126266652592875, guid: b37720f193296aa42830ffae11062d95, type: 3}
 --- !u!1001 &8997108470775206093
 PrefabInstance:
   m_ObjectHideFlags: 0

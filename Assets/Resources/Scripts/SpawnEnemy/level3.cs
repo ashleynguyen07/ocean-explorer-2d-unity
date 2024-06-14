@@ -5,25 +5,27 @@ using UnityEngine;
 
 public class level3 : MonoBehaviour
 {
-	[SerializeField]
-	private GameObject enemy;
+	
 	Rigidbody2D rb;
-	GameObject enemy2;
+	GameObject enemy1, enemy2, enemy3, childBoss, boss;
 	GameObject meteo;
 
 	private BoxCollider2D box;
 	private int countEnemy;
 	float minX, maxX, maxY, speed;
+	string randomMeteor;
 
-
+	string[] meteors = { "Meteor_01", "Meteor_02", "Meteor_03", "Meteor_04", "Meteor_05" };
 	void Start()
 	{
 
 		Vector3 bound = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0f));
-		enemy2 = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/enemy-6.prefab", typeof(GameObject));
 
-		meteo = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/bullet/Meteor_01.prefab", typeof(GameObject));
-
+		enemy1 = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/Enemy-1.prefab", typeof(GameObject));
+		enemy2 = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/Enemy-2.prefab", typeof(GameObject));
+		enemy3 = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/Enemy-3.prefab", typeof(GameObject));
+		childBoss = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/EnemyChildBoss1.prefab", typeof(GameObject));
+		boss = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/EnemyBoss.prefab", typeof(GameObject));
 
 		countEnemy = 0;
 		minX = -bound.x;
@@ -32,8 +34,15 @@ public class level3 : MonoBehaviour
 		speed = 2f;
 
 		box = GetComponent<BoxCollider2D>();
-
-		StartCoroutine(SpawnStageMeteo());
+		randomMeteor = GetRandomArrayElement(meteors);
+		StartCoroutine(SpawnEnemyStage1());
+	}
+	
+	private string GetRandomArrayElement(string[] array)
+	{
+		System.Random random = new System.Random();
+		int randomIndex = random.Next(array.Length);
+		return array[randomIndex];
 	}
 	IEnumerator SpawnEnemyStage1()
 	{
@@ -50,7 +59,7 @@ public class level3 : MonoBehaviour
 		{
 			Vector3 temp = transform.position;
 			temp.x = Random.Range(minX, maxX);
-			Instantiate(enemy, temp, Quaternion.identity);
+			Instantiate(enemy1, temp, Quaternion.identity);
 			countEnemy++;
 			StartCoroutine(SpawnEnemyStage1());
 		}
@@ -112,8 +121,8 @@ public class level3 : MonoBehaviour
 	}
 	IEnumerator SpawnStageMeteo()
 	{
-		
-			yield return new WaitForSeconds(2f);
+		meteo = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/bullet/" + randomMeteor + ".prefab", typeof(GameObject));
+		yield return new WaitForSeconds(2f);
 		if (countEnemy < 3)
 		{
 			Vector3 temp = transform.position;
@@ -123,6 +132,36 @@ public class level3 : MonoBehaviour
 			countEnemy++;
 			StartCoroutine(SpawnStageMeteo());
 		}
+
+	}
+	IEnumerator SpawnStageChildBoss()
+	{
 		
+		yield return new WaitForSeconds(2f);
+		if (countEnemy < 1)
+		{
+			Vector3 temp = transform.position;
+			temp.x = 3;
+
+			Instantiate(childBoss, temp, Quaternion.identity);
+			countEnemy++;
+			StartCoroutine(SpawnStageMeteo());
+		}
+
+	}
+	IEnumerator SpawnStageBoss()
+	{
+
+		yield return new WaitForSeconds(2f);
+		if (countEnemy < 1)
+		{
+			Vector3 temp = transform.position;
+			temp.x = 3;
+
+			Instantiate(boss, temp, Quaternion.identity);
+			countEnemy++;
+			StartCoroutine(SpawnStageMeteo());
+		}
+
 	}
 }
