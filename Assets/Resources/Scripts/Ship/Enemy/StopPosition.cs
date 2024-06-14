@@ -8,7 +8,9 @@ public class StopPosition : MonoBehaviour
     Rigidbody2D rb;
     void Start()
     {
-        positionStop =  PlayerPrefs.GetFloat("stopPosition");
+		transform.rotation = Quaternion.Euler(0, 0, 180);
+
+		positionStop =  PlayerPrefs.GetFloat("stopPosition");
         rb = GetComponent<Rigidbody2D>();
 
 	}

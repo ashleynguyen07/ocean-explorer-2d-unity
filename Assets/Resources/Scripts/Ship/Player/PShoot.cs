@@ -9,24 +9,38 @@ public class PShoot : MonoBehaviour
 	#region Fields
 
 	private GameObject bullet;
-	float speedTmp;
+	float speedTmp, timeSpeed;
+	int i;
+	bool check;
 	#endregion
-	
+
 	void Start()
 	{
 		GameObject prefabObject = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/bullet/Bullet_Red.prefab", typeof(GameObject));
 		bullet = prefabObject;
-		speedTmp = PlayerPrefs.GetFloat("Speed", 1);
+		timeSpeed= speedTmp = PlayerPrefs.GetFloat("Speed");
+		i = 0;
+		check = false;
 		StartCoroutine(Shoot());
 	}
 	private void Update()
 	{
-		speedTmp = PlayerPrefs.GetFloat("Speed", 1);
-
+        if (speedTmp != PlayerPrefs.GetFloat("Speed"))
+        {
+			speedTmp = PlayerPrefs.GetFloat("Speed");
+			check = true;
+		}
+       
+		if (i < 7&& check)
+		{
+			timeSpeed += speedTmp*2;
+			i++;
+			check = false;
+		}
 	}
 	IEnumerator Shoot()
 	{
-		yield return new WaitForSeconds((0.5f/speedTmp));
+		yield return new WaitForSeconds((0.5f / timeSpeed));
 		Vector3 temp = transform.position;
 		temp.x += 0;
 		temp.y += 2.3f;

@@ -9,15 +9,16 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
 	[SerializeField]
-	int maxHealth;
+	int maxHealth,maxPower;
 	
 	public PHealthBar healthBar;
+	public Power power;
 	public UnityEvent ondeath;
 
 	public Point point;
-	float speed ;
+	float speed , currentPower;
 	string win, checkShield;
-	int totalPoint,damage, countEnemy, currentHealth;
+	int totalPoint,damage, countEnemy, currentHealth ;
 
 	GameObject winPanel, gameOverPanel, shield;
 	//=====================
@@ -33,11 +34,13 @@ public class PlayerHealth : MonoBehaviour
 	//=====================
 	private void Start()
 	{
+		currentPower = 0f;
+		power.UpdatePower(currentPower, maxPower);
 		currentHealth = maxHealth;
 		healthBar.UpdateBar(currentHealth, maxHealth);
 		PlayerPrefs.SetInt("Point", 0);
 		PlayerPrefs.SetInt("damage", 0);
-		PlayerPrefs.SetFloat("Speed", 1);
+		PlayerPrefs.SetFloat("Speed", 1f);
 		PlayerPrefs.SetString("shieldP", "false");
 		winPanel = GameObject.Find("WinPanel");
 		OnOffPanelWin();
@@ -71,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
 			checkShield = PlayerPrefs.GetString("shieldP");
 			if (checkShield.Equals("false"))
 			{
-				TakeDamage(20);
+				TakeDamage(1);
 				healthBar.UpdateBar(currentHealth, maxHealth);
 				Destroy(collision.gameObject);
 			}
@@ -92,7 +95,7 @@ public class PlayerHealth : MonoBehaviour
 		}
 		if (collision.tag == "Damage")
 		{
-			damage += 10;
+			damage += 3;
 			PlayerPrefs.SetInt("damage", damage);
 			Destroy(collision.gameObject);
 		}
@@ -103,8 +106,7 @@ public class PlayerHealth : MonoBehaviour
 		}
 		if (collision.tag == "Speed")
 		{
-			speed += 4;
-			PlayerPrefs.SetFloat("Speed", speed);
+			PlayerPrefs.SetFloat("Speed", 0.5f);
 			Destroy(collision.gameObject);
 		}
 		if (collision.tag == "diamond")
@@ -115,9 +117,9 @@ public class PlayerHealth : MonoBehaviour
 	}
 	private void Update()
 	{
-		
+		power.UpdatePower(10*Time.deltaTime, maxPower);
 		totalPoint = PlayerPrefs.GetInt("Point", 0);
-		if ( totalPoint >= 780) StartCoroutine(WinGame());
+		//if ( totalPoint >= 780) StartCoroutine(WinGame());
 		
 	}
 

@@ -21,20 +21,7 @@ public class PMove : MonoBehaviour
 		{
 			shipName = "ship1";
 		}
-
-		GameObject prefabObject = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Player/" + shipName + ".prefab", typeof(GameObject));
-
-		
-		GameObject childObject = Instantiate(prefabObject, transform);
-
-		/*childObject.transform.position = parentObj.transform.position;
-		childObject.transform.rotation = parentObj.transform.rotation;
-		childObject.transform.localScale = parentObj.transform.localScale;*/
-		childObject.transform.SetParent(parentObj.transform);
-
-		//================================
-		rb = GetComponent<Rigidbody2D>();
-
+		Ship(shipName);
 	}
 	// Update is called once per frame
 	void Update()
@@ -46,6 +33,16 @@ public class PMove : MonoBehaviour
 		float xAxix = Input.GetAxisRaw("Horizontal") * SpeedMove;
 		float yAxis = Input.GetAxisRaw("Vertical") * SpeedMove;
 		rb.velocity = new Vector2(xAxix, yAxis);
+	}
+
+	public void Ship(string shipName)
+	{
+		Debug.Log(shipName);
+		GameObject prefabObject = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Player/" + shipName + ".prefab", typeof(GameObject));
+		GameObject childObject = Instantiate(prefabObject, transform);
+		childObject.transform.SetParent(parentObj.transform);
+		//================================
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 }

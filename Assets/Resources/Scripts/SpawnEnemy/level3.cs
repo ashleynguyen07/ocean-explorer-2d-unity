@@ -11,7 +11,7 @@ public class level3 : MonoBehaviour
 	GameObject meteo;
 
 	private BoxCollider2D box;
-	private int countEnemy;
+	private int countEnemy,countMeteor;
 	float minX, maxX, maxY, speed;
 	string randomMeteor;
 
@@ -28,7 +28,7 @@ public class level3 : MonoBehaviour
 		boss = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/EnemyBoss.prefab", typeof(GameObject));
 		enemyTest = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/enemy-5.prefab", typeof(GameObject));
 		enemyTest2 = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/enemy-6.prefab", typeof(GameObject));
-		countEnemy = 0;
+		countEnemy= countMeteor = 0;
 		minX = -bound.x;
 		maxX = bound.x;
 		Debug.Log(minX + " " + maxX);
@@ -38,7 +38,7 @@ public class level3 : MonoBehaviour
 		box = GetComponent<BoxCollider2D>();
 		randomMeteor = GetRandomArrayElement(meteors);
 		StartCoroutine(SpawnEnemyStage1());
-		//StartCoroutine(SpawnEnemyStage2_1());
+		
 
 	}
 
@@ -50,6 +50,7 @@ public class level3 : MonoBehaviour
 	}
 	IEnumerator SpawnEnemyStage1()
 	{
+		PlayerPrefs.SetInt("Stage", 1);
 		if (countEnemy == 0)
 		{
 			yield return new WaitForSeconds(3f);
@@ -62,20 +63,22 @@ public class level3 : MonoBehaviour
 		if (countEnemy <= 7)
 		{
 			Vector3 temp = transform.position;
-			temp.x = Random.Range(minX, maxX);
+			temp.x = Random.Range(minX+1f, maxX-1f);
 			Instantiate(enemy1, temp, Quaternion.identity);
 			countEnemy++;
 			StartCoroutine(SpawnEnemyStage1());
 		}
 		else
 		{
+			yield return new WaitForSeconds(20f);
 			StartCoroutine(SpawnEnemyStage2());
+			StartCoroutine(SpawnEnemyStage2_1());
 		}
 	}
 
 	IEnumerator SpawnEnemyStage2()
 	{
-		if (countEnemy < 3)
+		if (countEnemy <= 10)
 		{
 			yield return new WaitForSeconds(2f);
 
@@ -93,10 +96,15 @@ public class level3 : MonoBehaviour
 			countEnemy++;
 			StartCoroutine(SpawnEnemyStage2());
 		}
+		else
+		{
+			yield return new WaitForSeconds(15f);
+			StartCoroutine(SpawnStageChildBoss());
+		}
 	}
 	IEnumerator SpawnEnemyStage2_1()
 	{
-		if (countEnemy < 3)
+		if (countEnemy <= 10)
 		{
 			yield return new WaitForSeconds(2f);
 			Vector3 temp = transform.position;
@@ -113,7 +121,7 @@ public class level3 : MonoBehaviour
 	}
 	IEnumerator SpawnEnemyStage3()
 	{
-		if (countEnemy < 6)
+		if (countEnemy <= 17)
 		{
 			yield return new WaitForSeconds(1f);
 			Vector3 temp = new Vector3(4, 12, 0);
@@ -122,46 +130,63 @@ public class level3 : MonoBehaviour
 			countEnemy++;
 			StartCoroutine(SpawnEnemyStage3());
 		}
+		else
+		{
+			StartCoroutine(SpawnStageMeteo());
+
+			yield return new WaitForSeconds(15f);
+
+			StartCoroutine(SpawnStageBoss());
+		}
 	}
 	IEnumerator SpawnStageMeteo()
 	{
 		meteo = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/bullet/" + randomMeteor + ".prefab", typeof(GameObject));
 		yield return new WaitForSeconds(2f);
-		if (countEnemy < 3)
+		if (countMeteor < 3)
 		{
 			Vector3 temp = transform.position;
 			temp.x = Random.Range((minX + 0.2f), (maxX - 0.2f));
-
 			Instantiate(meteo, temp, Quaternion.identity);
-			countEnemy++;
+			countMeteor++;
 			StartCoroutine(SpawnStageMeteo());
+		}
+		else
+		{
+			countMeteor = 0;
 		}
 
 	}
 	IEnumerator SpawnStageChildBoss()
 	{
-		
-		yield return new WaitForSeconds(2f);
-		if (countEnemy < 1)
+		PlayerPrefs.SetInt("Stage", 6);
+		if (countEnemy <= 11)
 		{
+			yield return new WaitForSeconds(2f);
 			Vector3 temp = transform.position;
 			temp.x = 3;
 
 			Instantiate(childBoss, temp, Quaternion.identity);
 			countEnemy++;
 			StartCoroutine(SpawnStageMeteo());
+		} 
+		if(countEnemy <= 12) 
+		{
+			yield return new WaitForSeconds(15f);
+			StartCoroutine(SpawnEnemyStage3());
+			StartCoroutine(SpawnStageMeteo());
 		}
 
 	}
 	IEnumerator SpawnStageBoss()
 	{
+		PlayerPrefs.SetInt("Stage", 7);
 
 		yield return new WaitForSeconds(2f);
-		if (countEnemy < 1)
+		if (countEnemy <= 18)
 		{
 			Vector3 temp = transform.position;
 			temp.x = 3;
-
 			Instantiate(boss, temp, Quaternion.identity);
 			countEnemy++;
 			StartCoroutine(SpawnStageMeteo());
