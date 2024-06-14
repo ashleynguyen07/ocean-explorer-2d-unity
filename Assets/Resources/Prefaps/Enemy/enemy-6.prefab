@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5988936302706183112}
   - component: {fileID: 8906473477297687628}
   - component: {fileID: 5974046291243491144}
+  - component: {fileID: -2610843530448306735}
   m_Layer: 0
   m_Name: enemy-6
   m_TagString: Untagged
@@ -108,9 +109,36 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4830294163936778253}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 938d22951bcf94f428beef120612131d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 9007126266652592875, guid: b37720f193296aa42830ffae11062d95, type: 3}
+--- !u!50 &-2610843530448306735
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830294163936778253}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

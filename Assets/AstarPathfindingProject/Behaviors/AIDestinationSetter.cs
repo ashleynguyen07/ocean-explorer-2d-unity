@@ -36,7 +36,7 @@ namespace Pathfinding {
 		void Update () {
 			targetGameObject = GameObject.Find("Ship");
 			target = targetGameObject.transform;
-			Debug.Log(target + "póition");
+			
 			if (target != null && ai != null) ai.destination = target.position;
 		}
 	}

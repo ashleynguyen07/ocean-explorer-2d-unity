@@ -204,7 +204,7 @@ MonoBehaviour:
   orientation: 1
   enableRotation: 1
   autoRepath:
-    mode: 1
+    mode: 2
     interval: 10
     sensitivity: 10
     maximumInterval: 2

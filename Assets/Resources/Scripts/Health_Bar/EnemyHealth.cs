@@ -68,7 +68,8 @@ public class EnemyHealth : MonoBehaviour
 	{
 		if (collision.tag == "bulletP")
 		{
-			TakeDamage(10);
+			int damage = PlayerPrefs.GetInt("damage",0);
+			TakeDamage(10+damage);
 			enemyHealthBar.UpdateBar(currentHealth, maxHealth, true);
 			Destroy(collision.gameObject);
 		}

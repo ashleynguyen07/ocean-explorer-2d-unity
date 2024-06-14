@@ -10,19 +10,16 @@ public class PlayerHealth : MonoBehaviour
 {
 	[SerializeField]
 	int maxHealth;
-	int currentHealth;
+	
 	public PHealthBar healthBar;
 	public UnityEvent ondeath;
 
 	public Point point;
-	int countEnemy;
-	string win;
-	int totalPoint;
+	float speed ;
+	string win, checkShield;
+	int totalPoint,damage, countEnemy, currentHealth;
 
-	GameObject winPanel;
-	GameObject gameOverPanel;
-	GameObject shield;
-	string checkShield;
+	GameObject winPanel, gameOverPanel, shield;
 	//=====================
 	private void OnEnable()
 	{
@@ -39,10 +36,13 @@ public class PlayerHealth : MonoBehaviour
 		currentHealth = maxHealth;
 		healthBar.UpdateBar(currentHealth, maxHealth);
 		PlayerPrefs.SetInt("Point", 0);
+		PlayerPrefs.SetInt("damage", 0);
+		PlayerPrefs.SetFloat("Speed", 1);
+		PlayerPrefs.SetString("shieldP", "false");
 		winPanel = GameObject.Find("WinPanel");
 		OnOffPanelWin();
 		gameOverPanel = GameObject.Find("GameOverPanel");
-		
+		speed = damage = 0;
 		gameOverPanel.SetActive(false);
 		
 	}
@@ -68,9 +68,13 @@ public class PlayerHealth : MonoBehaviour
 	{
 		if (collision.tag == "bulletE")
 		{
-			TakeDamage(20);
-			healthBar.UpdateBar(currentHealth, maxHealth);
-			Destroy(collision.gameObject);
+			checkShield = PlayerPrefs.GetString("shieldP");
+			if (checkShield.Equals("false"))
+			{
+				TakeDamage(20);
+				healthBar.UpdateBar(currentHealth, maxHealth);
+				Destroy(collision.gameObject);
+			}
 		}
 		if (collision.tag == "enemy")
 		{
@@ -88,6 +92,8 @@ public class PlayerHealth : MonoBehaviour
 		}
 		if (collision.tag == "Damage")
 		{
+			damage += 10;
+			PlayerPrefs.SetInt("damage", damage);
 			Destroy(collision.gameObject);
 		}
 		if (collision.tag == "Blood")
@@ -97,6 +103,8 @@ public class PlayerHealth : MonoBehaviour
 		}
 		if (collision.tag == "Speed")
 		{
+			speed += 4;
+			PlayerPrefs.SetFloat("Speed", speed);
 			Destroy(collision.gameObject);
 		}
 		if (collision.tag == "diamond")

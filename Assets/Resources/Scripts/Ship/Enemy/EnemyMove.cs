@@ -12,7 +12,7 @@ public class EnemyMove : MonoBehaviour
 	void Start()
     {
 		Vector3 bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0f));
-		maxY = bounds.y - 8f;
+		maxY = bounds.y - 10f;
 		y = bounds.y;
 	}
 

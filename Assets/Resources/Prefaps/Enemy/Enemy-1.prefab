@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1c2a68b105e97488a34d37e92f1bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 30
   enemyHealthBar: {fileID: 1398907314759999300}
   ondeath:
     m_PersistentCalls:

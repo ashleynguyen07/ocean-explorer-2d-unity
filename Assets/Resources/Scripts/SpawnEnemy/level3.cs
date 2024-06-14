@@ -7,7 +7,7 @@ public class level3 : MonoBehaviour
 {
 	
 	Rigidbody2D rb;
-	GameObject enemy1, enemy2, enemy3, childBoss, boss;
+	GameObject enemy1, enemy2, enemy3, childBoss, boss, enemyTest, enemyTest2;
 	GameObject meteo;
 
 	private BoxCollider2D box;
@@ -26,18 +26,22 @@ public class level3 : MonoBehaviour
 		enemy3 = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/Enemy-3.prefab", typeof(GameObject));
 		childBoss = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/EnemyChildBoss1.prefab", typeof(GameObject));
 		boss = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/EnemyBoss.prefab", typeof(GameObject));
-
+		enemyTest = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/enemy-5.prefab", typeof(GameObject));
+		enemyTest2 = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Enemy/enemy-6.prefab", typeof(GameObject));
 		countEnemy = 0;
 		minX = -bound.x;
 		maxX = bound.x;
-		maxY = bound.y - 10f;
+		Debug.Log(minX + " " + maxX);
+		maxY = bound.y - 9f;
 		speed = 2f;
 
 		box = GetComponent<BoxCollider2D>();
 		randomMeteor = GetRandomArrayElement(meteors);
 		StartCoroutine(SpawnEnemyStage1());
+		//StartCoroutine(SpawnEnemyStage2_1());
+
 	}
-	
+
 	private string GetRandomArrayElement(string[] array)
 	{
 		System.Random random = new System.Random();
@@ -80,7 +84,7 @@ public class level3 : MonoBehaviour
 			maxY += 2f;
 			PlayerPrefs.SetFloat("stopPosition", maxY);
 
-			GameObject enemyTmp = Instantiate(enemy2, temp, Quaternion.identity);
+			GameObject enemyTmp = Instantiate(enemyTest, temp, Quaternion.identity);
 
 			rb = enemyTmp.AddComponent<Rigidbody2D>();
 			rb.velocity = new Vector2(+1, -1);
@@ -98,7 +102,7 @@ public class level3 : MonoBehaviour
 			Vector3 temp = transform.position;
 			temp.x = maxX - 2f;
 
-			GameObject enemyTmp = Instantiate(enemy2, temp, Quaternion.identity);
+			GameObject enemyTmp = Instantiate(enemyTest, temp, Quaternion.identity);
 			rb = enemyTmp.AddComponent<Rigidbody2D>();
 
 			rb.velocity = new Vector2(-1, -1);
@@ -112,9 +116,9 @@ public class level3 : MonoBehaviour
 		if (countEnemy < 6)
 		{
 			yield return new WaitForSeconds(1f);
-			Vector3 temp = new Vector3(2, 2, 0);
+			Vector3 temp = new Vector3(4, 12, 0);
 
-			Instantiate(enemy2, temp, Quaternion.identity);
+			Instantiate(enemyTest2, temp, Quaternion.identity);
 			countEnemy++;
 			StartCoroutine(SpawnEnemyStage3());
 		}
