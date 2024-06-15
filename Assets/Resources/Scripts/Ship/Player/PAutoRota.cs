@@ -19,8 +19,7 @@ public class PAutoRota : MonoBehaviour
 		}
 		Sprite prefabObject = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipName + ".png", typeof(Sprite));
 		mySprite = prefabObject;
-		//========================================
-		
+
 		SpriteRenderer spriteRenderer = myGameObject.AddComponent<SpriteRenderer>();
 		spriteRenderer.sprite = mySprite;
 		AutoRotate customComponent = myGameObject.AddComponent<AutoRotate>();

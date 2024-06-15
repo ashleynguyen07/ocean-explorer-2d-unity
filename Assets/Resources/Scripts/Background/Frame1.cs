@@ -8,38 +8,27 @@ public class Frame1 : MonoBehaviour
 {
 	[SerializeField]
 	GameObject parentObject;
-	Sprite mySprite;
-	string extend,shipFight, tmpShip;
-	bool checkTime;
+	Sprite playPrefap;
+	GameObject childGameObject;
+	
+	string extend, shipFight, tmpShip;
 	int check;
 	void Start()
 	{
-		check = PlayerPrefs.GetInt("check");
-		checkTime = true;
-		shipFight = PlayerPrefs.GetString("ShipFight");
-		tmpShip = PlayerPrefs.GetString("tmpShip");
-		string shipName = PlayerPrefs.GetString("ShipFight");
-		if (string.IsNullOrEmpty(shipName))
-		{
-			shipName = "ship1";
-			PlayerPrefs.SetString("ShipFight", "ship1");
-		}
-		UpdateShip(shipName);
-		
+		PlayerPrefs.SetString("tmpShip", "default");
+		UpdateShip();
 	}
-	private void Update()
+	void Update()
 	{
 		check = PlayerPrefs.GetInt("check");
-		shipFight = PlayerPrefs.GetString("ShipFight");
-		tmpShip = PlayerPrefs.GetString("tmpShip");
-		if (shipFight.Equals(tmpShip) && check == 1)
-		{
-		}
-		else if (check == 1) UpdateShip(tmpShip);
+		if (check == 1) UpdateShip();
 	}
-	void UpdateShip(string nameShip)
+	void UpdateShip()
 	{
-		if (nameShip.Equals("ship3"))
+		shipFight = PlayerPrefs.GetString("ShipFight","ship1");
+		tmpShip = PlayerPrefs.GetString("tmpShip");
+
+		if (tmpShip.Equals("ship3"))
 		{
 			extend = ".asset";
 		}
@@ -47,46 +36,48 @@ public class Frame1 : MonoBehaviour
 		{
 			extend = ".png";
 		}
-		Sprite playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + nameShip + extend, typeof(Sprite));
-		mySprite = playPrefap;
-
-		if (shipFight.Equals(tmpShip))
+		if (tmpShip.Equals("default"))
 		{
-			if (checkTime)
+			if (shipFight.Equals("ship3"))
 			{
-				checkTime = false;
+				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipFight + ".asset", typeof(Sprite));
 			}
 			else
 			{
-				Destroy();
+				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipFight +  extend, typeof(Sprite));
 			}
-			CreateChildObj();
 		}
 		else
 		{
-			Destroy();
-			CreateChildObj();
+			playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + tmpShip + extend, typeof(Sprite));
 		}
+			CreateChildObj();
 	}
-
 	void CreateChildObj()
 	{
-		GameObject childGameObject = new GameObject("Playerimage");
-		childGameObject.transform.parent = parentObject.transform;
+		if (parentObject != null && parentObject.transform.childCount <= 0)
+		{
+			childGameObject = new GameObject("Playerimage");
+			childGameObject.transform.parent = parentObject.transform;
+			SpriteRenderer childSpriteRenderer = childGameObject.AddComponent<SpriteRenderer>();
 
-		childGameObject.transform.localPosition = new Vector3(0.01f, 0f, 0f);
-		childGameObject.transform.localRotation = Quaternion.identity;
-		childGameObject.transform.localScale = new Vector3(0.09f, 0.09f, 0f);
+			childSpriteRenderer.sprite = playPrefap;
+			childSpriteRenderer.sortingOrder = 1;
+			childGameObject.transform.localPosition = new Vector3(0.01f, 0f, 0f);
 
-		SpriteRenderer childSpriteRenderer = childGameObject.AddComponent<SpriteRenderer>();
-		childSpriteRenderer.sprite = mySprite;
-		childSpriteRenderer.sortingOrder = 1;
-	}
-	private void Destroy()
-	{
-		Transform oldChildTranform = parentObject.transform.GetChild(0);
-		GameObject oldChildObj = oldChildTranform.gameObject;
-		DestroyImmediate(oldChildObj);
+			childGameObject.transform.localRotation = Quaternion.identity;
+			childGameObject.transform.localScale = new Vector3(0.09f, 0.09f, 0f);
+		}
+		else
+		{
+			SpriteRenderer spriteRenderer = childGameObject.GetComponent<SpriteRenderer>();
+			spriteRenderer.sprite = playPrefap;
+			spriteRenderer.sortingOrder = 1;
+
+			childGameObject.transform.localPosition = new Vector3(0.01f, 0f, 0f);
+			childGameObject.transform.localRotation = Quaternion.identity;
+			childGameObject.transform.localScale = new Vector3(0.09f, 0.09f, 0f);
+		}
 		PlayerPrefs.SetInt("check", 0);
 	}
 }
