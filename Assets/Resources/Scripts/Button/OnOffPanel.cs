@@ -9,6 +9,9 @@ public class OnOffPanel : MonoBehaviour
 	 GameObject popupPanel;
 	public void btnOnOffPanel(string shipName)
 	{
+		PlayerPrefs.SetString("tmpShip", shipName);
+		PlayerPrefs.SetInt("check", 1);
+
 		if (onOff !=true)
 		{
 			onOff = true;
@@ -22,6 +25,5 @@ public class OnOffPanel : MonoBehaviour
 			popupPanel.SetActive(false);
 		}
 		string highScore = PlayerPrefs.GetString("ShipName");
-		Debug.Log("Ship name" + highScore);
 	}
 }
