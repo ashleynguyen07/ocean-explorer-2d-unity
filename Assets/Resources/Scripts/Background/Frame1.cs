@@ -13,9 +13,11 @@ public class Frame1 : MonoBehaviour
 	
 	string extend, shipFight, tmpShip;
 	int check;
+	
 	void Start()
 	{
-		PlayerPrefs.SetString("tmpShip", "default");
+		Debug.Log("heloooo");
+		PlayerPrefs.SetString("tmpShip1", "default");
 		UpdateShip();
 	}
 	void Update()
@@ -25,8 +27,10 @@ public class Frame1 : MonoBehaviour
 	}
 	void UpdateShip()
 	{
+		Debug.Log("heloooo111");
+
 		shipFight = PlayerPrefs.GetString("ShipFight","ship1");
-		tmpShip = PlayerPrefs.GetString("tmpShip");
+		tmpShip = PlayerPrefs.GetString("tmpShip1");
 
 		if (tmpShip.Equals("ship3"))
 		{
@@ -78,6 +82,6 @@ public class Frame1 : MonoBehaviour
 			childGameObject.transform.localRotation = Quaternion.identity;
 			childGameObject.transform.localScale = new Vector3(0.09f, 0.09f, 0f);
 		}
-		PlayerPrefs.SetInt("check", 0);
+		
 	}
 }

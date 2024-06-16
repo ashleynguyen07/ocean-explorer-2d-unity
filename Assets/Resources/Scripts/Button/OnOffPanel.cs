@@ -11,20 +11,43 @@ public class OnOffPanel : MonoBehaviour
 	bool onOffChild = false;
 	[SerializeField]
 	GameObject popupPanel;
-	public void btnOnOffPanel(string shipName)
+	public void btnOnOffPanel(string comboship)
 	{
-		Active(shipName);
+		Active(comboship);
+		
 	}
 
-	void Active(string shipName)
+	void Active(string comboship)
 	{
+		string shipName = "";
+		string bulletName = "";
+		string childName = "";
+
+		if (comboship.Equals("combo1"))
+		{
+			shipName = "ship1";
+			bulletName = "bulletP1";
+			childName = "child1";
+		}else if (comboship.Equals("combo2"))
+		{
+			shipName = "ship2";
+			bulletName = "bulletP2";
+			childName = "child2";
+		}
+		else if (comboship.Equals("combo3"))
+		{
+			shipName = "ship3";
+			bulletName = "bulletP3";
+			childName = "child3";
+		}
 		
-		if (onOff != true)
+		
+		if (onOff != true&& comboship.Equals("null"))
 		{
 			onOff = true;
 			popupPanel.SetActive(true);
 		}
-		else if (shipName.Equals("close"))
+		else if (comboship.Equals("close"))
 		{
 			onOff = false;
 			popupPanel.SetActive(false);
@@ -32,9 +55,10 @@ public class OnOffPanel : MonoBehaviour
 		else
 		{
 			PlayerPrefs.SetInt("check", 1);
-			PlayerPrefs.SetString("tmpShip", shipName);
-			PlayerPrefs.SetString("ShipName", shipName);
-			PlayerPrefs.Save();
+			PlayerPrefs.SetString("tmpShip1", shipName);
+			PlayerPrefs.SetString("tmpChild", childName);
+			PlayerPrefs.SetString("tmpBullet", bulletName);
+			
 			onOff = false;
 			popupPanel.SetActive(false);
 		}
@@ -48,23 +72,22 @@ public class OnOffPanel : MonoBehaviour
 	void ActiveChild(string child)
 	{
 
-		if (onOff != true && child.Equals("null"))
+		if (onOffChild != true && child.Equals("null"))
 		{
-			onOff = true;
+			PlayerPrefs.SetString("tmpChild", "default");
+			onOffChild = true;
 			popupPanel.SetActive(true);
 		}
 		else if (child.Equals("close"))
 		{
-			onOff = false;
+			onOffChild = false;
 			popupPanel.SetActive(false);
 		}
 		else
 		{
 			PlayerPrefs.SetInt("check", 1);
 			PlayerPrefs.SetString("tmpChild", child);
-			PlayerPrefs.SetString("ChildName", child);
-			PlayerPrefs.Save();
-			onOff = false;
+			onOffChild = false;
 			popupPanel.SetActive(false);
 		}
 
@@ -77,24 +100,22 @@ public class OnOffPanel : MonoBehaviour
 	void ActiveShip(string shipName)
 	{
 
-		if (onOff != true && shipName.Equals("null"))
+		if (onOffShip != true && shipName.Equals("null"))
 		{
-			onOff = true;
+			onOffShip = true;
 			popupPanel.SetActive(true);
 		}
 		else
 		if (shipName.Equals("close"))
 		{
-			onOff = false;
+			onOffShip = false;
 			popupPanel.SetActive(false);
 		}
 		else
 		{
 			PlayerPrefs.SetInt("check", 1);
-			PlayerPrefs.SetString("Ship1", shipName);
-			PlayerPrefs.SetString("ShipName1", shipName);
-			PlayerPrefs.Save();
-			onOff = false;
+			PlayerPrefs.SetString("tmpShip1", shipName);
+			onOffShip = false;
 			popupPanel.SetActive(false);
 		}
 
@@ -106,23 +127,21 @@ public class OnOffPanel : MonoBehaviour
 	}
 	void ActiveBullet(string bullet)
 	{
-		if (onOff != true && bullet.Equals("null"))
+		if (onOffBullet != true && bullet.Equals("null"))
 		{
-			onOff = true;
+			onOffBullet = true;
 			popupPanel.SetActive(true);
 		}
 		else if (bullet.Equals("close"))
 		{
-			onOff = false;
+			onOffBullet = false;
 			popupPanel.SetActive(false);
 		}
 		else
 		{
 			PlayerPrefs.SetInt("check", 1);
 			PlayerPrefs.SetString("tmpBullet", bullet);
-			PlayerPrefs.SetString("BulletName", bullet);
-			PlayerPrefs.Save();
-			onOff = false;
+			onOffBullet = false;
 			popupPanel.SetActive(false);
 		}
 

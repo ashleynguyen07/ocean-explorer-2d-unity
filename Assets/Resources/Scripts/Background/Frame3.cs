@@ -10,45 +10,46 @@ public class Frame3 : MonoBehaviour
 	Sprite playPrefap;
 	GameObject childGameObject;
 
-	string extend, shipFight, tmpShip;
+	string extend, childFight, tmpChild;
 	int check;
 	void Start()
 	{
-		PlayerPrefs.SetString("tmpShip", "default");
-		UpdateShip();
+		PlayerPrefs.SetString("tmpChild", "default");
+
+		UpdateChild();
 	}
 	void Update()
 	{
 		check = PlayerPrefs.GetInt("check");
-		if (check == 1) UpdateShip();
+		if (check == 1) UpdateChild();
 	}
-	void UpdateShip()
+	void UpdateChild()
 	{
-		shipFight = PlayerPrefs.GetString("ShipFight", "ship1");
-		tmpShip = PlayerPrefs.GetString("tmpShip");
+		childFight = PlayerPrefs.GetString("ChildFight");
+		tmpChild = PlayerPrefs.GetString("tmpChild");
 
-		if (tmpShip.Equals("ship3"))
+		if (tmpChild.Equals("child2"))
 		{
-			extend = ".asset";
+			extend = "left.png";
 		}
 		else
 		{
-			extend = ".png";
+			extend = "left.asset";
 		}
-		if (tmpShip.Equals("default"))
+		if (tmpChild.Equals("default"))
 		{
-			if (shipFight.Equals("ship3"))
+			if (childFight.Equals("child2"))
 			{
-				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipFight + ".asset", typeof(Sprite));
+				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/child/" + childFight + "left.png", typeof(Sprite));
 			}
 			else
 			{
-				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipFight + extend, typeof(Sprite));
+				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/child/" + childFight + extend, typeof(Sprite));
 			}
 		}
 		else
 		{
-			playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + tmpShip + extend, typeof(Sprite));
+			playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/child/" + tmpChild + extend, typeof(Sprite));
 		}
 		CreateChildObj();
 	}
@@ -65,7 +66,11 @@ public class Frame3 : MonoBehaviour
 			childGameObject.transform.localPosition = new Vector3(0.01f, 0f, 0f);
 
 			childGameObject.transform.localRotation = Quaternion.identity;
-			childGameObject.transform.localScale = new Vector3(0.09f, 0.09f, 0f);
+			if (tmpChild.Equals("child3"))
+			{
+				childGameObject.transform.localScale = new Vector3(0.8f, 0.8f, 0f);
+			}else childGameObject.transform.localScale = new Vector3(0.18f, 0.18f, 0f);
+
 		}
 		else
 		{
@@ -75,8 +80,13 @@ public class Frame3 : MonoBehaviour
 
 			childGameObject.transform.localPosition = new Vector3(0.01f, 0f, 0f);
 			childGameObject.transform.localRotation = Quaternion.identity;
-			childGameObject.transform.localScale = new Vector3(0.09f, 0.09f, 0f);
+			if (tmpChild.Equals("child3"))
+			{
+				childGameObject.transform.localScale = new Vector3(0.8f, 0.8f, 0f);
+			}
+			else childGameObject.transform.localScale = new Vector3(0.18f, 0.18f, 0f);
 		}
-		
+
+
 	}
 }

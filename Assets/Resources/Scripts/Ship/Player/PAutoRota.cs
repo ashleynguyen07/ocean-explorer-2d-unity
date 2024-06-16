@@ -9,23 +9,42 @@ public class PAutoRota : MonoBehaviour
 	Sprite mySprite;
 	[SerializeField]
 	GameObject myGameObject;
+
 	void Start()
     {
-		string shipName = PlayerPrefs.GetString("ShipFight");
-		if(string.IsNullOrEmpty(shipName))
+		string shipName = PlayerPrefs.GetString("ShipFight","ship1");
+		string childName = PlayerPrefs.GetString("ChildFight");
+		string bulletName = PlayerPrefs.GetString("BulletFight");
+		string extend="";
+		if (shipName.Equals("ship3"))
 		{
-			shipName = "ship1";
-			PlayerPrefs.SetString("ShipFight", "ship1");
+			extend = ".asset";
 		}
-		Sprite prefabObject = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipName + ".png", typeof(Sprite));
+		else extend = ".png";
+		Sprite prefabObject = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipName + extend, typeof(Sprite));
 		mySprite = prefabObject;
 
 		SpriteRenderer spriteRenderer = myGameObject.AddComponent<SpriteRenderer>();
 		spriteRenderer.sprite = mySprite;
 		AutoRotate customComponent = myGameObject.AddComponent<AutoRotate>();
-		
 
+		if (string.IsNullOrEmpty(childName))
+		{
+			PlayerPrefs.SetString("ChildFight","default");
+		}
+		else PlayerPrefs.SetString("ChildFight", childName);
+
+
+		if (string.IsNullOrEmpty(bulletName))
+		{
+			PlayerPrefs.SetString("BulletFight", "bulletP1");
+		}
+		else PlayerPrefs.SetString("BulletFight", bulletName);
+
+		
 	}
+
+	
 }
 public class AutoRotate : MonoBehaviour
 {

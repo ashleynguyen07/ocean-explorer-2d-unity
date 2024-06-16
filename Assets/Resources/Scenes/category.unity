@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 23228288}
   - component: {fileID: 23228287}
   m_Layer: 5
-  m_Name: btnbullet3
+  m_Name: btnchild3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -634,16 +634,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 577979237}
+      - m_Target: {fileID: 203836596}
         m_TargetAssemblyTypeName: OnOffPanel, Assembly-CSharp
-        m_MethodName: btnOnOffPanel
+        m_MethodName: btnOnOffPanelChild
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ship3
+          m_StringArgument: child3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &23228288
@@ -1452,7 +1452,7 @@ GameObject:
   - component: {fileID: 266685651}
   - component: {fileID: 266685650}
   m_Layer: 5
-  m_Name: btnbullet2
+  m_Name: btnchild2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1523,16 +1523,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 577979237}
+      - m_Target: {fileID: 203836596}
         m_TargetAssemblyTypeName: OnOffPanel, Assembly-CSharp
-        m_MethodName: btnOnOffPanel
+        m_MethodName: btnOnOffPanelChild
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ship2
+          m_StringArgument: child2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &266685651
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 270608737}
   - component: {fileID: 270608736}
   m_Layer: 5
-  m_Name: btnShip3
+  m_Name: btnBullet3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1732,16 +1732,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 577979237}
+      - m_Target: {fileID: 1980918047}
         m_TargetAssemblyTypeName: OnOffPanel, Assembly-CSharp
-        m_MethodName: btnOnOffPanel
+        m_MethodName: btnOnOffPanelBullet
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ship3
+          m_StringArgument: bulletP3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &270608737
@@ -2048,9 +2048,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 577979237}
+      - m_Target: {fileID: 2031452356}
         m_TargetAssemblyTypeName: OnOffPanel, Assembly-CSharp
-        m_MethodName: btnOnOffPanel
+        m_MethodName: btnOnOffPanelShip
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2787,7 +2787,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ship2
+          m_StringArgument: combo2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &588126922
@@ -2921,7 +2921,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ship3
+          m_StringArgument: combo3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &596691729
@@ -3900,7 +3900,7 @@ GameObject:
   - component: {fileID: 869503277}
   - component: {fileID: 869503276}
   m_Layer: 5
-  m_Name: btnShip1
+  m_Name: btnBullet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3971,16 +3971,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 577979237}
+      - m_Target: {fileID: 1980918047}
         m_TargetAssemblyTypeName: OnOffPanel, Assembly-CSharp
-        m_MethodName: btnOnOffPanel
+        m_MethodName: btnOnOffPanelBullet
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ship1
+          m_StringArgument: bulletP1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &869503277
@@ -4034,7 +4034,7 @@ GameObject:
   - component: {fileID: 888643137}
   - component: {fileID: 888643136}
   m_Layer: 5
-  m_Name: btnbullet1
+  m_Name: btnchild1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4105,16 +4105,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 577979237}
+      - m_Target: {fileID: 203836596}
         m_TargetAssemblyTypeName: OnOffPanel, Assembly-CSharp
-        m_MethodName: btnOnOffPanel
+        m_MethodName: btnOnOffPanelChild
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ship1
+          m_StringArgument: child1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &888643137
@@ -5296,7 +5296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1207570095
 Transform:
   m_ObjectHideFlags: 0
@@ -6234,7 +6234,7 @@ GameObject:
   - component: {fileID: 1658549240}
   - component: {fileID: 1658549239}
   m_Layer: 5
-  m_Name: btnShip2
+  m_Name: btnBullet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6305,16 +6305,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 577979237}
+      - m_Target: {fileID: 1980918047}
         m_TargetAssemblyTypeName: OnOffPanel, Assembly-CSharp
-        m_MethodName: btnOnOffPanel
+        m_MethodName: btnOnOffPanelBullet
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ship2
+          m_StringArgument: bulletP2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1658549240
@@ -6412,7 +6412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c3b397f92d2150e45942c55974e0f099, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73c1b206d4dd4a849867b31f26019ffe, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7406,9 +7406,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 577979237}
+      - m_Target: {fileID: 2031452356}
         m_TargetAssemblyTypeName: OnOffPanel, Assembly-CSharp
-        m_MethodName: btnOnOffPanel
+        m_MethodName: btnOnOffPanelShip
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8050,7 +8050,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ship1
+          m_StringArgument: combo1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1978868589
@@ -8220,9 +8220,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 577979237}
+      - m_Target: {fileID: 2031452356}
         m_TargetAssemblyTypeName: OnOffPanel, Assembly-CSharp
-        m_MethodName: btnOnOffPanel
+        m_MethodName: btnOnOffPanelShip
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

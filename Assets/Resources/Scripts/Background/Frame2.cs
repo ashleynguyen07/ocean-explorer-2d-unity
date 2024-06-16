@@ -10,45 +10,45 @@ public class Frame2 : MonoBehaviour
 	Sprite playPrefap;
 	GameObject childGameObject;
 
-	string extend, shipFight, tmpShip;
+	string extend, bulletFight, tmpbullet;
 	int check;
 	void Start()
 	{
-		PlayerPrefs.SetString("tmpShip", "default");
-		UpdateShip();
+		PlayerPrefs.SetString("tmpBullet", "default");
+		UpdateBullet();
 	}
 	void Update()
 	{
 		check = PlayerPrefs.GetInt("check");
-		if (check == 1) UpdateShip();
+		if (check == 1) UpdateBullet();
 	}
-	void UpdateShip()
+	void UpdateBullet()
 	{
-		shipFight = PlayerPrefs.GetString("ShipFight", "ship1");
-		tmpShip = PlayerPrefs.GetString("tmpShip");
+		bulletFight = PlayerPrefs.GetString("BulletFight", "bulletP1");
+		tmpbullet = PlayerPrefs.GetString("tmpBullet");
 
-		if (tmpShip.Equals("ship3"))
-		{
-			extend = ".asset";
-		}
-		else
+		if (tmpbullet.Equals("bulletP1"))
 		{
 			extend = ".png";
 		}
-		if (tmpShip.Equals("default"))
+		else
 		{
-			if (shipFight.Equals("ship3"))
+			extend = ".asset";
+		}
+		if (tmpbullet.Equals("default"))
+		{
+			if (bulletFight.Equals("bulletP1"))
 			{
-				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipFight + ".asset", typeof(Sprite));
+				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/bullet/" + bulletFight + ".png", typeof(Sprite));
 			}
 			else
 			{
-				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + shipFight + extend, typeof(Sprite));
+				playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/bullet/" + bulletFight + extend, typeof(Sprite));
 			}
 		}
 		else
 		{
-			playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/Ships/Player/" + tmpShip + extend, typeof(Sprite));
+			playPrefap = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Resources/Sprites/bullet/" + tmpbullet + extend, typeof(Sprite));
 		}
 		CreateChildObj();
 	}
@@ -63,9 +63,14 @@ public class Frame2 : MonoBehaviour
 			childSpriteRenderer.sprite = playPrefap;
 			childSpriteRenderer.sortingOrder = 1;
 			childGameObject.transform.localPosition = new Vector3(0.01f, 0f, 0f);
+			if (bulletFight.Equals("bulletP3") || tmpbullet.Equals("bulletP3"))
+			{
+				childGameObject.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+			}
+			else childGameObject.transform.localRotation = Quaternion.identity;
 
-			childGameObject.transform.localRotation = Quaternion.identity;
-			childGameObject.transform.localScale = new Vector3(0.09f, 0.09f, 0f);
+
+			childGameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0f);
 		}
 		else
 		{
@@ -74,9 +79,14 @@ public class Frame2 : MonoBehaviour
 			spriteRenderer.sortingOrder = 1;
 
 			childGameObject.transform.localPosition = new Vector3(0.01f, 0f, 0f);
-			childGameObject.transform.localRotation = Quaternion.identity;
-			childGameObject.transform.localScale = new Vector3(0.09f, 0.09f, 0f);
+			if (bulletFight.Equals("bulletP3") || tmpbullet.Equals("bulletP3"))
+			{
+				childGameObject.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+			}
+			else childGameObject.transform.localRotation = Quaternion.identity;
+			childGameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0f);
 		}
 		
+
 	}
 }
