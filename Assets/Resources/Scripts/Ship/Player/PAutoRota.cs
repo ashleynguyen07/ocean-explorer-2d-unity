@@ -9,7 +9,6 @@ public class PAutoRota : MonoBehaviour
 	Sprite mySprite;
 	[SerializeField]
 	GameObject myGameObject;
-
 	void Start()
     {
 		string shipName = PlayerPrefs.GetString("ShipFight","ship1");
@@ -33,18 +32,12 @@ public class PAutoRota : MonoBehaviour
 			PlayerPrefs.SetString("ChildFight","default");
 		}
 		else PlayerPrefs.SetString("ChildFight", childName);
-
-
 		if (string.IsNullOrEmpty(bulletName))
 		{
 			PlayerPrefs.SetString("BulletFight", "bulletP1");
 		}
 		else PlayerPrefs.SetString("BulletFight", bulletName);
-
-		
 	}
-
-	
 }
 public class AutoRotate : MonoBehaviour
 {

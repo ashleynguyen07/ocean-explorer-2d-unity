@@ -21,8 +21,6 @@ public class Power : MonoBehaviour
 			tmpPower += currentValue;
 			PlayerPrefs.SetFloat("Power", tmpPower);
 		}
-		
 		powerElement.fillAmount = tmpPower / (float)maxValue;
-		
 	}
 }

@@ -14,15 +14,12 @@ public class OnOffPanel : MonoBehaviour
 	public void btnOnOffPanel(string comboship)
 	{
 		Active(comboship);
-		
 	}
-
 	void Active(string comboship)
 	{
 		string shipName = "";
 		string bulletName = "";
 		string childName = "";
-
 		if (comboship.Equals("combo1"))
 		{
 			shipName = "ship1";
@@ -40,8 +37,6 @@ public class OnOffPanel : MonoBehaviour
 			bulletName = "bulletP3";
 			childName = "child3";
 		}
-		
-		
 		if (onOff != true&& comboship.Equals("null"))
 		{
 			onOff = true;
@@ -58,20 +53,16 @@ public class OnOffPanel : MonoBehaviour
 			PlayerPrefs.SetString("tmpShip1", shipName);
 			PlayerPrefs.SetString("tmpChild", childName);
 			PlayerPrefs.SetString("tmpBullet", bulletName);
-			
 			onOff = false;
 			popupPanel.SetActive(false);
 		}
-
 	}
-	//===========================================
 	public void btnOnOffPanelChild(string child)
 	{
 		ActiveChild(child);
 	}
 	void ActiveChild(string child)
 	{
-
 		if (onOffChild != true && child.Equals("null"))
 		{
 			PlayerPrefs.SetString("tmpChild", "default");
@@ -90,16 +81,13 @@ public class OnOffPanel : MonoBehaviour
 			onOffChild = false;
 			popupPanel.SetActive(false);
 		}
-
 	}
-	//===========================================
 	public void btnOnOffPanelShip(string shipName)
 	{
 		ActiveShip(shipName);
 	}
 	void ActiveShip(string shipName)
 	{
-
 		if (onOffShip != true && shipName.Equals("null"))
 		{
 			onOffShip = true;
@@ -118,9 +106,7 @@ public class OnOffPanel : MonoBehaviour
 			onOffShip = false;
 			popupPanel.SetActive(false);
 		}
-
 	}
-	//=================================
 	public void btnOnOffPanelBullet(string bullet)
 	{
 		ActiveBullet(bullet);
@@ -144,7 +130,5 @@ public class OnOffPanel : MonoBehaviour
 			onOffBullet = false;
 			popupPanel.SetActive(false);
 		}
-
 	}
-
 }

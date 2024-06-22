@@ -5,29 +5,30 @@ using UnityEngine;
 public class bonus_move : MonoBehaviour
 {
 	#region Fields 
-	public float moveSpeed;
+	float x, y;
 	private Rigidbody2D rb;
-
 	#endregion
 	void Start()
 	{
+		x = -2f;
+		y = -1f;
 		rb = GetComponent<Rigidbody2D>();
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		rb.velocity = new Vector2(0f, -moveSpeed);
-
+		rb.velocity = new Vector2(x, y);
 	}
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag == "TopBoxBound")
+		if (collision.tag == "BottomBoxBound" )
 		{
 			Destroy(gameObject);
 		}
-
 	}
-
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.tag == "MainCamera")
+		{
+			x = -x;
+			rb.velocity = new Vector2(x, y);
+		}
+	}
+	
 }

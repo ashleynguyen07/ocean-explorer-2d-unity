@@ -7,7 +7,6 @@ public class ColliderBackGround : MonoBehaviour
 	#region Fields
     private float minX, minY, maxX, maxY;
 	#endregion
-	// Start is called before the first frame update
 	void Start()
     {
         Vector3 bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0f));
@@ -16,8 +15,6 @@ public class ColliderBackGround : MonoBehaviour
         maxX = bounds.x - 1.3f;
         maxY = bounds.y-1.3f;
     }
-
-    // Update is called once per frame
     void Update()
     {
         Vector3 tmp = transform.position;
@@ -36,7 +33,6 @@ public class ColliderBackGround : MonoBehaviour
         {
             tmp.y = maxY;
         }
-
         transform.position = tmp;
     }
 }

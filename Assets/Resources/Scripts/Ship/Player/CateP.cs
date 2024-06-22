@@ -25,8 +25,6 @@ public class CateP : MonoBehaviour
 		PlayerPrefs.SetString("tmpShip1", "default");
 		PlayerPrefs.SetString("tmpChild", "default");
 		PlayerPrefs.SetString("tmpBullet", "default");
-
-
 		UpdateShip();
 	}
 	void Update()
@@ -40,7 +38,6 @@ public class CateP : MonoBehaviour
 		tmpShip = PlayerPrefs.GetString("tmpShip1");
 		tmpChild = PlayerPrefs.GetString("tmpChild");
 		childFight = PlayerPrefs.GetString("ChildFight");
-
 		if (tmpShip.Equals("default"))
 		{
 			playPrefap = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Player/" + shipFight + ".prefab", typeof(GameObject));
@@ -49,7 +46,6 @@ public class CateP : MonoBehaviour
 		{
 			playPrefap = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Player/" + tmpShip + ".prefab", typeof(GameObject));
 		}
-
 		if (shipFight.Equals(tmpShip))
 		{
 			if (checkTime)
@@ -84,11 +80,7 @@ public class CateP : MonoBehaviour
 			childPrefap = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Childs/" + tmpChild + ".prefab", typeof(GameObject));
 			StartCoroutine(FindChild("notFight"));
 		}
-
-		
-
 	}
-
 	IEnumerator FindChild(string checkChildFight)
 	{
 		yield return new WaitForSeconds(0.001f);
@@ -97,7 +89,6 @@ public class CateP : MonoBehaviour
 			Transform oldChildTransform = parentObject.transform.GetChild(0);
 			if (oldChildTransform != null)
 			{
-				
 				GameObject oldChildObj = oldChildTransform.gameObject;
 				if (oldChildObj != null && oldChildObj.transform.childCount > 0)
 				{
@@ -108,41 +99,15 @@ public class CateP : MonoBehaviour
 						GameObject.Destroy(oldChildOfChild);
 					}
 				}
-
 				childOfChildObj = Instantiate(childPrefap, oldChildObj.transform);
 				childOfChildObj.transform.SetParent(oldChildObj.transform);
 				if (checkChildFight.Equals("notFight"))
 				{
-					if (tmpChild.Equals("child1"))
-					{
-						childOfChildObj.transform.localPosition = new Vector3(2.5f, 0f, 0f);
-					}
-					else if (tmpChild.Equals("child2"))
-					{
-
-						childOfChildObj.transform.localPosition = new Vector3(-4.6f, -1f, 0f);
-					}
-					else if (tmpChild.Equals("child3"))
-					{
 						childOfChildObj.transform.localPosition = new Vector3(2.47f, 2f, 0f);
-					}
 				}else
 				{
-					if (childFight.Equals("child1"))
-					{
-						childOfChildObj.transform.localPosition = new Vector3(2.5f, 0f, 0f);
-					}
-					else if (childFight.Equals("child2"))
-					{
-
-						childOfChildObj.transform.localPosition = new Vector3(-4.6f, -1f, 0f);
-					}
-					else if (childFight.Equals("child3"))
-					{
 						childOfChildObj.transform.localPosition = new Vector3(2.47f, 2f, 0f);
-					}
 				}
-
 				StartCoroutine(OffCheck());
 			}
 		}
@@ -158,19 +123,14 @@ public class CateP : MonoBehaviour
 				GameObject.Destroy(oldChildObj);
 			}
 		}
-		
 	}
 	void CreateChild()
 	{
 		childGameObject = Instantiate(playPrefap, transform);
 		childGameObject.transform.SetParent(parentObject.transform);
-
-
 	}
-
 	IEnumerator OffCheck()
 	{
 		yield return new WaitForSeconds(0.0001f);
-		
 	}
 }

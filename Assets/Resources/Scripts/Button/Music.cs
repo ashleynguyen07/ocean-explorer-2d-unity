@@ -7,7 +7,6 @@ public class Music : MonoBehaviour
 {
 	[SerializeField] private AudioMixer myMixer;
 	[SerializeField] private Slider musicSlider;
-
 	private void Start()
 	{
 		if (PlayerPrefs.HasKey("musicVolume"))
@@ -25,7 +24,6 @@ public class Music : MonoBehaviour
 		myMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
 		PlayerPrefs.SetFloat("musicVolume", volume);
 	}
-
 	void LoadVolume()
 	{
 		musicSlider.value = PlayerPrefs.GetFloat("musicVolume");

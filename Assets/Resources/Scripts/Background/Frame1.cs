@@ -16,7 +16,6 @@ public class Frame1 : MonoBehaviour
 	
 	void Start()
 	{
-		Debug.Log("heloooo");
 		PlayerPrefs.SetString("tmpShip1", "default");
 		UpdateShip();
 	}
@@ -27,11 +26,8 @@ public class Frame1 : MonoBehaviour
 	}
 	void UpdateShip()
 	{
-		Debug.Log("heloooo111");
-
 		shipFight = PlayerPrefs.GetString("ShipFight","ship1");
 		tmpShip = PlayerPrefs.GetString("tmpShip1");
-
 		if (tmpShip.Equals("ship3"))
 		{
 			extend = ".asset";
@@ -82,6 +78,5 @@ public class Frame1 : MonoBehaviour
 			childGameObject.transform.localRotation = Quaternion.identity;
 			childGameObject.transform.localScale = new Vector3(0.09f, 0.09f, 0f);
 		}
-		
 	}
 }

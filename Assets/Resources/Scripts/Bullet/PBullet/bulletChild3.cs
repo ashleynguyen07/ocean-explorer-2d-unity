@@ -16,11 +16,8 @@ public class bulletChild3 : MonoBehaviour
 		i = 0;
 		check = false;
 		StartCoroutine(ShootLeft());
-
 		StartCoroutine(ShootRight());
 	}
-
-    // Update is called once per frame
     void Update()
     {
 		if (speedTmp != PlayerPrefs.GetFloat("Speed"))
@@ -44,7 +41,6 @@ public class bulletChild3 : MonoBehaviour
 		temp.y -= 1.5f;
 		Instantiate(bullet, temp, Quaternion.Euler(0f, 0f, 90f));
 		StartCoroutine(ShootLeft());
-
 	}
 	IEnumerator ShootRight()
 	{
@@ -54,6 +50,5 @@ public class bulletChild3 : MonoBehaviour
 		temp.y -= 1.5f;
 		Instantiate(bullet, temp, Quaternion.Euler(0f, 0f, 90f));
 		StartCoroutine(ShootRight());
-
 	}
 }

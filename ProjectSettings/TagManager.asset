@@ -16,6 +16,10 @@ TagManager:
   - Damage
   - diamond
   - shieldP
+  - PlayerExtra
+  - Rocket
+  - BulletExtra
+  - BulletRocket
   layers:
   - Default
   - TransparentFX

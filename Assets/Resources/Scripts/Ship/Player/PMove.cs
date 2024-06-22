@@ -9,7 +9,7 @@ public class PMove : MonoBehaviour
 	#region Fields
 	public float SpeedMove;
 	private Rigidbody2D rb;
-	bool check;
+	bool checkFirst, checkTimeReturn;
 	[SerializeField]
 	GameObject parentObj;
 
@@ -17,7 +17,8 @@ public class PMove : MonoBehaviour
 	//=========================
 	void Start()
 	{
-		check = true;
+		checkTimeReturn = checkFirst = true;
+		PlayerPrefs.SetString("tmpBullet", "default");
 		string shipName = PlayerPrefs.GetString("ShipFight");
 		if (string.IsNullOrEmpty(shipName))
 		{
@@ -40,29 +41,47 @@ public class PMove : MonoBehaviour
 	public void Ship(string shipName)
 	{
 		GameObject prefabObject = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Player/" + shipName + ".prefab", typeof(GameObject));
-		if (check)
+		if (checkFirst)
 		{
+			//Sinh Ship lan dau tien
 			GameObject childObject = Instantiate(prefabObject, transform);
 			childObject.transform.SetParent(parentObj.transform);
-			check = false;
+			checkFirst = false;
+			if (PlayerPrefs.GetString("ChildFight") != "default")
+			{
+				GameObject prefabObjectChild = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Childs/" + PlayerPrefs.GetString("ChildFight") + ".prefab", typeof(GameObject));
+				GameObject childChildObject = Instantiate(prefabObjectChild, transform);
+				childChildObject.transform.SetParent(childObject.transform);
+				childChildObject.transform.localPosition = new Vector3(2.4f, 1.7f, 0f);
+			}
 		}
 		else
 		{
+			//bien hinh === 
 			Transform oldChildTranform = parentObj.transform.GetChild(0);
 			GameObject oldChildObj = oldChildTranform.gameObject;
 			DestroyImmediate(oldChildObj);
 
 			GameObject childObject = Instantiate(prefabObject, transform);
 			childObject.transform.SetParent(parentObj.transform);
-			StartCoroutine(ReturnShip());
+
+			if (PlayerPrefs.GetString("ChildFight") != "default")
+			{
+				GameObject prefabObjectChild = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefaps/Childs/" + PlayerPrefs.GetString("ChildFight") + ".prefab", typeof(GameObject));
+				GameObject childChildObject = Instantiate(prefabObjectChild, transform);
+				childChildObject.transform.SetParent(childObject.transform);
+				childChildObject.transform.localPosition = new Vector3(2.4f, 1.7f, 0f);
+			}
+
+			if (checkTimeReturn) StartCoroutine(ReturnShip());
 		}
 		rb = GetComponent<Rigidbody2D>();
-		
+		checkTimeReturn = true;
 	}
 	IEnumerator ReturnShip()
 	{
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(10);
+		checkTimeReturn = false;
 		Ship(PlayerPrefs.GetString("Childinitial"));
 	}
-
 }

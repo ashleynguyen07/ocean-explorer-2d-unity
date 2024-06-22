@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class ShieldMove : MonoBehaviour
 {
-
     GameObject Player;
 	float timeLife;
 	float realTime;
-
-
 	private void Start()
 	{
 		Player = GameObject.Find("Ship");
@@ -31,7 +28,6 @@ public class ShieldMove : MonoBehaviour
 		if (collision.tag == "bulletE")
 		{
 			Destroy(collision.gameObject);
-			
 		}
 	}
 }

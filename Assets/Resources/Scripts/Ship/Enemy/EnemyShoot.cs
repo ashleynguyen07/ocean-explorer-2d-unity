@@ -10,7 +10,6 @@ public class EnemyShoot : MonoBehaviour
     {
 		InvokeRepeating("Shoot", 1f, 1f);
 	}
-
 	void Shoot()
 	{
 		Vector3 temp = transform.position;

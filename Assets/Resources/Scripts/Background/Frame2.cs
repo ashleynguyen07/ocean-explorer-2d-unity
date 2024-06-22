@@ -86,7 +86,5 @@ public class Frame2 : MonoBehaviour
 			else childGameObject.transform.localRotation = Quaternion.identity;
 			childGameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0f);
 		}
-		
-
 	}
 }

@@ -6,9 +6,7 @@ using UnityEngine;
 public class Point : MonoBehaviour
 {
 	public TextMeshProUGUI valueTextPoint;
-
 	int totalPoint=0;
-    
     public void UpdatePoint(int point)
     {
 		totalPoint += point;

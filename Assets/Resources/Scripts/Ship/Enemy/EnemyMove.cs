@@ -5,33 +5,28 @@ using static Cinemachine.AxisState;
 
 public class EnemyMove : MonoBehaviour
 {
-	float maxY,y;
+	float maxY, y;
 	public float SpeedMove;
-
-
 	void Start()
-    {
+	{
 		Vector3 bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0f));
 		int stage = PlayerPrefs.GetInt("Stage", 1);
-		if(stage == 1)
+		if (stage == 1)
 		{
-			maxY = bounds.y - Random.RandomRange(1,8);
+			maxY = bounds.y - Random.RandomRange(1, 8);
 		}
-		
-		else if (stage ==4)
-		{
-			maxY = bounds.y - 10f;
-		}
-		else if (stage ==5)
+		else if (stage == 4)
 		{
 			maxY = bounds.y - 10f;
 		}
-		else if (stage ==6 || stage ==7)
+		else if (stage == 5)
 		{
 			maxY = bounds.y - 10f;
 		}
-		
-		
+		else if (stage == 6 || stage == 7)
+		{
+			maxY = bounds.y - 10f;
+		}
 		y = bounds.y;
 	}
 	void Update()

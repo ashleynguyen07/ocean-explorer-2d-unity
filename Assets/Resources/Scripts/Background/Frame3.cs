@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-
 public class Frame3 : MonoBehaviour
 {
 	[SerializeField]
@@ -15,7 +14,6 @@ public class Frame3 : MonoBehaviour
 	void Start()
 	{
 		PlayerPrefs.SetString("tmpChild", "default");
-
 		UpdateChild();
 	}
 	void Update()
@@ -27,7 +25,6 @@ public class Frame3 : MonoBehaviour
 	{
 		childFight = PlayerPrefs.GetString("ChildFight");
 		tmpChild = PlayerPrefs.GetString("tmpChild");
-
 		if (tmpChild.Equals("child2"))
 		{
 			extend = "left.png";
@@ -70,7 +67,6 @@ public class Frame3 : MonoBehaviour
 			{
 				childGameObject.transform.localScale = new Vector3(0.8f, 0.8f, 0f);
 			}else childGameObject.transform.localScale = new Vector3(0.18f, 0.18f, 0f);
-
 		}
 		else
 		{
@@ -86,7 +82,5 @@ public class Frame3 : MonoBehaviour
 			}
 			else childGameObject.transform.localScale = new Vector3(0.18f, 0.18f, 0f);
 		}
-
-
 	}
 }
