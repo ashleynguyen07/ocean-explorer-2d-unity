@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnE : MonoBehaviour
 {
 	[SerializeField]
-	private GameObject enemy;
+	 GameObject enemy;
 	private BoxCollider2D box;
 	private int countEnemy;
 	void Start()

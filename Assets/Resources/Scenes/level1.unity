@@ -710,7 +710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e06176a2396d9145b21346b03e7c032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedScroll: 0.1
 --- !u!1 &327972780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,6 +1270,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1352,6 +1352,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &519420033
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04844761, y: -0.018184423}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.231352, y: 3.829905}
+  m_EdgeRadius: 0
 --- !u!1 &528919558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,7 +2473,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  maxPower: 0
   healthBar: {fileID: 1771730645}
+  power: {fileID: 0}
   ondeath:
     m_PersistentCalls:
       m_Calls: []
@@ -3694,7 +3741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e15a19977363b42a8c4283a6df1fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3405501562958225920, guid: b52e7720121107a46bd7b80d062d2852, type: 3}
+  enemy: {fileID: 4172460282894786188, guid: 4c4a1dfb95eeecf47b46f397efb700b0, type: 3}
 --- !u!1 &1910721365
 GameObject:
   m_ObjectHideFlags: 0

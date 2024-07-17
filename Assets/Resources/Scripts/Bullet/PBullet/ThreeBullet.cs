@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,11 +9,13 @@ public class ThreeBullet : MonoBehaviour
 	#region Fields
 	GameObject prefabObject;
 	string bulletFight;
-	#endregion
-	void Start()
+    float timeSpeed;
+    #endregion
+    void Start()
 	{
 		UpdateBullet();
-	}
+        timeSpeed = PlayerPrefs.GetFloat("Speed");
+    }
 	private void UpdateBullet()
 	{
 		bulletFight = PlayerPrefs.GetString("BulletFight");
@@ -20,26 +23,30 @@ public class ThreeBullet : MonoBehaviour
 		StartCoroutine(ShootBulletLeft());
 		StartCoroutine(ShootBulletRight());
 	}
+   
+       
+    
 	IEnumerator ShootBulletLeft()
 	{
-		yield return new WaitForSeconds(1f);
+        timeSpeed = PlayerPrefs.GetFloat("Speed");
+        yield return new WaitForSeconds((0.5f/timeSpeed));
 		Vector3 temp = transform.position;
 		temp.x -= 0.5f;
 		temp.y += 1.5f;
 		GameObject tmp = Instantiate(prefabObject, temp, Quaternion.identity);
 		Rigidbody2D rb = tmp.GetComponent<Rigidbody2D>();
-		rb.velocity = new Vector2(-0.2f, +2f);
+		rb.velocity = new Vector2(-0.5f, 15f);
 		StartCoroutine(ShootBulletLeft());
 	}
 	IEnumerator ShootBulletRight()
 	{
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds((0.5f / timeSpeed));
 		Vector3 temp = transform.position;
 		temp.x += 0.5f;
 		temp.y += 1.5f;
 		GameObject tmp= Instantiate(prefabObject, temp, Quaternion.identity);
 		Rigidbody2D rb = tmp.GetComponent<Rigidbody2D>();
-		rb.velocity = new Vector2(+0.2f, 2f);
+		rb.velocity = new Vector2(+0.5f, 15f);
 		StartCoroutine(ShootBulletRight());
 	}
 }

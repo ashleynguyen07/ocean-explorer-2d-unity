@@ -10,15 +10,18 @@ public class Power : MonoBehaviour
 	float tmpPower;
 	public void UpdatePower(float currentValue, int maxValue)
 	{
+		
 		if(currentValue == 0) tmpPower = 0;
 		if (tmpPower >= maxValue)
 		{
-			tmpPower = 100;
+           
+            tmpPower = 100;
 			PlayerPrefs.SetFloat("Power", tmpPower);
 		}
 		else 
 		{
-			tmpPower += currentValue;
+          
+            tmpPower += currentValue;
 			PlayerPrefs.SetFloat("Power", tmpPower);
 		}
 		powerElement.fillAmount = tmpPower / (float)maxValue;

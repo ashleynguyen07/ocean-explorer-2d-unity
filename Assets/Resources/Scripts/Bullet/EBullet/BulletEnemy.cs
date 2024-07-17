@@ -5,11 +5,12 @@ using UnityEngine;
 public class BulletEnemy : MonoBehaviour
 {
 	#region Fields 
-	public float moveSpeed;
+	 float moveSpeed;
 	private Rigidbody2D rb;
 	#endregion
 	void Start()
 	{
+		moveSpeed = 15f;
 		rb = GetComponent<Rigidbody2D>();
 	}
 	void Update()
