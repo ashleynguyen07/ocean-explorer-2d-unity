@@ -20,6 +20,11 @@ public class PShoot : MonoBehaviour
 	}
 	private void Update()
 	{
+		if(PlayerPrefs.GetInt("After",0) == 1)
+		{
+			callThreeBulletOneTime = true;
+            PlayerPrefs.SetInt("ThreeRoket", 1);
+        }
 		check1 = PlayerPrefs.GetInt("check");
 		timeSpeed = PlayerPrefs.GetFloat("Speed");
 		if (check1 == 1) UpdateBullet();
@@ -30,7 +35,6 @@ public class PShoot : MonoBehaviour
 			callRoketOneTime=false;
 			StartCoroutine(OffRocket());
 		}
-
 		if(PlayerPrefs.GetInt("ThreeRoket",0) ==1 && callThreeBulletOneTime)
 		{
 			gameObject.AddComponent<ThreeBullet>();
@@ -63,8 +67,7 @@ public class PShoot : MonoBehaviour
 
 	IEnumerator Shoot()
 	{
-		
-		yield return new WaitForSeconds((0.5f / timeSpeed));
+		yield return new WaitForSeconds((1f / timeSpeed));
 		Vector3 temp = transform.position;
 		temp.x += 0;
 		temp.y += 2.3f;

@@ -10,7 +10,7 @@ public class BulletEnemy : MonoBehaviour
 	#endregion
 	void Start()
 	{
-		moveSpeed = 15f;
+		moveSpeed = 10f;
 		rb = GetComponent<Rigidbody2D>();
 	}
 	void Update()

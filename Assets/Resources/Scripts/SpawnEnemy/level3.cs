@@ -170,12 +170,12 @@ public class level3 : MonoBehaviour
 	}
 	IEnumerator SpawnStageChildBoss()
 	{
-
-		if (countEnemy <= 0)
+        PlayerPrefs.SetInt("Stage", 5);
+        if (countEnemy <= 0)
 		{
 			yield return new WaitForSeconds(2f);
 			Vector3 temp = transform.position;
-			temp.x = 3;
+			
 			Instantiate(childBoss, temp, Quaternion.identity);
 			countEnemy++;
 			StartCoroutine(SpawnStageMeteo());
@@ -183,7 +183,6 @@ public class level3 : MonoBehaviour
 		}
 		else
 		{
-			PlayerPrefs.SetInt("Stage", 4);
 			yield return new WaitForSeconds(15f);
 			countEnemy = 0;
 			StartCoroutine(SpawnEnemyStage4());
@@ -196,7 +195,6 @@ public class level3 : MonoBehaviour
 		if (countEnemy < 1)
 		{
 			Vector3 temp = transform.position;
-			temp.x = 3;
 			Instantiate(boss, temp, Quaternion.identity);
 			countEnemy++;
 			StartCoroutine(SpawnStageMeteo());

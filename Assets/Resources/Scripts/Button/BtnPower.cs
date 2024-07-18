@@ -21,8 +21,9 @@ public class BtnPower : MonoBehaviour
 	} 
 	void ClickPower()
 	{
-		//tang toc do khi bien hinh
-		PlayerPrefs.SetInt("SpeedExtra", 1);
+        PlayerPrefs.SetInt("After", 1);
+        //tang toc do khi bien hinh
+        PlayerPrefs.SetInt("SpeedExtra", 1);
 		powerObject.UpdatePower(0, 100);
 		string shipName = "player_extra_00";
 		player.Ship(shipName);

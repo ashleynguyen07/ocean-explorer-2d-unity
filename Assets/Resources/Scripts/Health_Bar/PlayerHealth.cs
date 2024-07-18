@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
         speedBonus = currentPower = 0f;
         countSpeed = countRocket = timeBonusSpeed = damage = 0;
         currentHealth = maxHealth;
-         level = PlayerPrefs.GetInt("Level", 0);
+         level = PlayerPrefs.GetInt("Level", 1);
         healthBar.UpdateBar(currentHealth, maxHealth);
         PlayerPrefs.SetInt("ThreeRoket", 0);
         PlayerPrefs.SetInt("Roket", 0);

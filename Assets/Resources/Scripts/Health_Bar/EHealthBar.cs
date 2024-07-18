@@ -8,19 +8,35 @@ using UnityEngine.UI;
 public class EnemyHealthBar : MonoBehaviour
 {
 	public Image redBar;
-	public void UpdateBar(int currentValue, int maxValue, bool status)
+	int currentHealth;
+
+    private void Start()
+    {
+		
+    }
+    public void UpdateBar(int currentValue, int maxValue, bool status)
 	{
+		currentHealth = currentValue;
         if (status == true)
         {
 			gameObject.SetActive(true);
 			redBar.fillAmount = (float)currentValue / (float)maxValue;
-			StartCoroutine( EHealthApprean());
+
+            
+            StartCoroutine( EHealthApprean());
 		}
 		else
 		{
-			redBar.fillAmount = (float)currentValue / (float)maxValue;
+            
+            redBar.fillAmount = (float)currentValue / (float)maxValue;
 		}
 	}
+	public int GetCurrentHealth()
+	{
+        
+        return currentHealth;
+
+    }
 	IEnumerator EHealthApprean()
 	{
 		yield return new WaitForSeconds(1f);

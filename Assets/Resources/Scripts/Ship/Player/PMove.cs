@@ -83,5 +83,6 @@ public class PMove : MonoBehaviour
 		yield return new WaitForSeconds(10);
 		checkTimeReturn = false;
 		Ship(PlayerPrefs.GetString("Childinitial"));
-	}
+        PlayerPrefs.SetInt("After", 0);
+    }
 }
